@@ -15,16 +15,18 @@
       
 
         <% if user_signed_in? %>
-        <li class="<%= 'active' if current_page?(edit_user_registration_path) %>"  ><%= link_to "Admin", edit_user_registration_path %>
+        <li class="<%= 'active' if current_page?(admin_path) %>"  ><%= link_to "Admin", admin_path %>
          </li>
-         <li class="<%= 'active' if current_page?(edit_user_registration_path) %>"  ><%= link_to "Learning", edit_user_registration_path %>
 
-
+         <li class="<%= 'active' if current_page?(education_path) %>"  ><%= link_to "Education", education_path %>
          </li>
+
+         <li class="<%= 'active' if current_page?(schedule_path) %>"  ><%= link_to "Schedule", schedule_path %>
+         </li>
+
          <li class="<%= 'active' if current_page?(people_path) %>"  ><%= link_to "People", people_path %>
          </li>
-         <li class="<%= 'active' if current_page?(edit_user_registration_path) %>"  ><%= link_to "Schedule", edit_user_registration_path %>
-         </li>
+      
          <li class="<%= 'active' if current_page?(edit_user_registration_path) %>"  ><%= link_to "Account Settings", edit_user_registration_path %>
          </li>
           <li class="<%= 'active' if current_page?(destroy_user_session_path) %>"   ><%= link_to "Log out", destroy_user_session_path, method: :delete %>
