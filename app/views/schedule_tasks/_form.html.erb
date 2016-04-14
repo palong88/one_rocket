@@ -1,10 +1,10 @@
-<%= form_for(@education_task) do |f| %>
-  <% if @education_task.errors.any? %>
+<%= form_for(@schedule_task) do |f| %>
+  <% if @schedule_task.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@education_task.errors.count, "error") %> prohibited this education_task from being saved:</h2>
+      <h2><%= pluralize(@schedule_task.errors.count, "error") %> prohibited this schedule_task from being saved:</h2>
 
       <ul>
-      <% @education_task.errors.full_messages.each do |message| %>
+      <% @schedule_task.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :schedule_tasks
+  resources :admin_tasks
+  resources :education_tasks
   resources :education_tasks
   resources :education_tasks
   resources :education_tasks

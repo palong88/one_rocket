@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Schedule Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Media</th>
+      <th>Due date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schedule_tasks.each do |schedule_task| %>
+      <tr>
+        <td><%= schedule_task.title %></td>
+        <td><%= schedule_task.description %></td>
+        <td><%= schedule_task.media %></td>
+        <td><%= schedule_task.due_date %></td>
+        <td><%= link_to 'Show', schedule_task %></td>
+        <td><%= link_to 'Edit', edit_schedule_task_path(schedule_task) %></td>
+        <td><%= link_to 'Destroy', schedule_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Schedule task', new_schedule_task_path %>
