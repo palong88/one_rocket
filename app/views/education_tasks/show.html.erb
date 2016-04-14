@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @education_task.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @education_task.description %>
+</p>
+
+<p>
+  <strong>Media:</strong>
+  <%= @education_task.media %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @education_task.due_date %>
+</p>
+
+<%= link_to 'Edit', edit_education_task_path(@education_task) %> |
+<%= link_to 'Back', education_tasks_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Education Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Media</th>
+      <th>Due date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @education_tasks.each do |education_task| %>
+      <tr>
+        <td><%= education_task.title %></td>
+        <td><%= education_task.description %></td>
+        <td><%= education_task.media %></td>
+        <td><%= education_task.due_date %></td>
+        <td><%= link_to 'Show', education_task %></td>
+        <td><%= link_to 'Edit', edit_education_task_path(education_task) %></td>
+        <td><%= link_to 'Destroy', education_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Education task', new_education_task_path %>
