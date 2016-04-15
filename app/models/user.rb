@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   has_many :pins
   has_many :admin_tasks
   has_many :education_tasks
+  has_many :schedule_tasks
 end

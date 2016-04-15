@@ -1,10 +1,12 @@
 class ScheduleTasksController < ApplicationController
   before_action :set_schedule_task, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /schedule_tasks
   # GET /schedule_tasks.json
   def index
     @schedule_tasks = ScheduleTask.all
+    @schedule_tasks = current_user.schedule_tasks
   end
 
   # GET /schedule_tasks/1
@@ -14,7 +16,8 @@ class ScheduleTasksController < ApplicationController
 
   # GET /schedule_tasks/new
   def new
-    @schedule_task = ScheduleTask.new
+    
+     @schedule_task = current_user.schedule_tasks.build
   end
 
   # GET /schedule_tasks/1/edit
@@ -24,7 +27,7 @@ class ScheduleTasksController < ApplicationController
   # POST /schedule_tasks
   # POST /schedule_tasks.json
   def create
-    @schedule_task = ScheduleTask.new(schedule_task_params)
+    @schedule_task = current_user.schedule_tasks.build(schedule_task_params)
 
     respond_to do |format|
       if @schedule_task.save

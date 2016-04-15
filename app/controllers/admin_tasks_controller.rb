@@ -1,10 +1,13 @@
 class AdminTasksController < ApplicationController
   before_action :set_admin_task, only: [:show, :edit, :update, :destroy]
+   before_action :authenticate_user!
 
   # GET /admin_tasks
   # GET /admin_tasks.json
   def index
     @admin_tasks = AdminTask.all
+    @admin_tasks = current_user.admin_tasks
+
     
   end
 
@@ -15,7 +18,8 @@ class AdminTasksController < ApplicationController
 
   # GET /admin_tasks/new
   def new
-    @admin_task = AdminTask.new
+  
+    @admin_task = current_user.admin_tasks.build
   end
 
   # GET /admin_tasks/1/edit
@@ -25,7 +29,7 @@ class AdminTasksController < ApplicationController
   # POST /admin_tasks
   # POST /admin_tasks.json
   def create
-    @admin_task = AdminTask.new(admin_task_params)
+    @admin_task = current_user.admin_tasks.build(admin_task_params)
 
     respond_to do |format|
       if @admin_task.save

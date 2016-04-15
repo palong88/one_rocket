@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   root "pages#home"
-
+ get "modal" => "pages#modal"
   get "about" => "pages#about"
   get "people" => "pins#index"
   get "education" => "education_tasks#index"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414225504) do
+ActiveRecord::Schema.define(version: 20160415004719) do
 
   create_table "admin_tasks", force: :cascade do |t|
     t.string   "title"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20160414225504) do
     t.integer  "due_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
+
+  add_index "admin_tasks", ["user_id"], name: "index_admin_tasks_on_user_id"
 
   create_table "education_tasks", force: :cascade do |t|
     t.string   "title"
@@ -50,7 +53,10 @@ ActiveRecord::Schema.define(version: 20160414225504) do
     t.integer  "due_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
+
+  add_index "schedule_tasks", ["user_id"], name: "index_schedule_tasks_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
