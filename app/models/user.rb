@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :pins
+  has_many :admin_tasks
+  has_many :education_tasks
 end

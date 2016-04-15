@@ -1,10 +1,14 @@
 class EducationTasksController < ApplicationController
   before_action :set_education_task, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /education_tasks
   # GET /education_tasks.json
   def index
     @education_tasks = EducationTask.all
+    @education_tasks = current_user.education_tasks
+
+
   end
 
   # GET /education_tasks/1
@@ -14,7 +18,7 @@ class EducationTasksController < ApplicationController
 
   # GET /education_tasks/new
   def new
-    @education_task = EducationTask.new
+    @education_task = current_user.education_tasks.build
   end
 
   # GET /education_tasks/1/edit
@@ -24,7 +28,7 @@ class EducationTasksController < ApplicationController
   # POST /education_tasks
   # POST /education_tasks.json
   def create
-    @education_task = EducationTask.new(education_task_params)
+    @education_task = current_user.education_tasks.build(education_task_params)
 
     respond_to do |format|
       if @education_task.save

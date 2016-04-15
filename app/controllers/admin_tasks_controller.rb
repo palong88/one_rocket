@@ -5,6 +5,7 @@ class AdminTasksController < ApplicationController
   # GET /admin_tasks.json
   def index
     @admin_tasks = AdminTask.all
+    
   end
 
   # GET /admin_tasks/1
