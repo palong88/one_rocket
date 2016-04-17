@@ -1,0 +1,61 @@
+
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="row-fluid">
+   <h2>People</h2>
+   <div class="center">
+   <%= link_to 'Create New Employee ', new_user_path, class: "btn btn-primary"%>
+    </div>
+</div><br>
+
+    <% @users.each do |user| %>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 mb">
+              <!-- WHITE PANEL - TOP USER -->
+              <div class="white-panel pn">
+                <div class="white-header">
+                  <h5> <%= link_to 'Show', user, :class => "btn fa fa-eye" %>
+                    <%= link_to 'Edit', edit_user_path(user),:class => "btn fa fa-pencil-square-o" %>
+                    <%= link_to 'Delete', user,:class => "btn fa fa-trash-o", method: :delete, data: { confirm: 'Are you sure?' } %></h5>
+                </div>
+                <p><img src="http://lorempixel.com/400/200" class="img-circle" width="80" height="80"></p>
+                <p><b><%= user.email %></b></p>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p class="small mt">EMPLOYEE SINCE</p>
+                      <p><%= user.created_at.strftime("%d %b. %Y") %></p>
+                    </div>
+                    <div class="col-md-6">
+                      <p class="small mt"><%= user.id %>Progress</p>
+                      <p>72%</p>
+                    </div>
+
+                    
+                  </div>
+              </div>
+            </div>
+            
+    <% end %>
+
+ 
+
+<!--
+  </tbody>
+</table>
+
+<br>-->
+
+
+
+
+
+
+
+
+
+
+
+
+

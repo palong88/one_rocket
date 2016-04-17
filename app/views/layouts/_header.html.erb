@@ -13,8 +13,9 @@
 
 
       
-
+        
         <% if user_signed_in? %>
+
         <li class="<%= 'active' if current_page?(admin_path) %>"  ><%= link_to "Admin", admin_path %>
          </li>
 
@@ -29,6 +30,7 @@
       
          <li class="<%= 'active' if current_page?(edit_user_registration_path) %>"  ><%= link_to "Account Settings", edit_user_registration_path %>
          </li>
+
           <li class="<%= 'active' if current_page?(destroy_user_session_path) %>"   ><%= link_to "Log out", destroy_user_session_path, method: :delete %>
           </li>
           

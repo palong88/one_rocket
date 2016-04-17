@@ -1,13 +1,14 @@
 class EducationTasksController < ApplicationController
+  
   before_action :set_education_task, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+   load_and_authorize_resource
 
   # GET /education_tasks
   # GET /education_tasks.json
   def index
     @education_tasks = EducationTask.all
-    @education_tasks = current_user.education_tasks
-
+    
 
   end
 

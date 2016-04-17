@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :eadmin_tasks
+  resources :eadmin_tasks
+  resources :eadmin_tasks
+  resources :eadmin_tasks
   resources :schedule_tasks
   resources :admin_tasks
   resources :education_tasks
@@ -7,14 +11,22 @@ Rails.application.routes.draw do
   resources :education_tasks
   resources :pins
   devise_for :users
+  scope '/admin' do
+    resources :users
+  end
   
   root "pages#home"
- get "modal" => "pages#modal"
+  get "modal" => "pages#modal"
+  get "people" => "users#index"
+  get "new" => "users#new"
+  get "show" => "users#show"
   get "about" => "pages#about"
   get "people" => "pins#index"
   get "education" => "education_tasks#index"
   get "admin" => "admin_tasks#index"
+  get "employee" => "eadmin_tasks#index"
   get "schedule" => "schedule_tasks#index"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -71,3 +83,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+
+

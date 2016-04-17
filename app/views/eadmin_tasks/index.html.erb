@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Education Tasks</h1>
+
+
+
+<h1>Listing EAdmin Tasks</h1>
 
     <div class="row mt">
                 
@@ -8,15 +11,7 @@
 
                       <section class="task-panel tasks-widget">
                   
-                          <div class="panel-body">
-                             
                      
-
-                              <div class=" add-task-row">
-                                  <%= link_to 'New Education task', new_education_task_path, class: "btn btn-success btn-sm " %>
-                                  <a class="btn btn-default btn-sm pull-right" href="todo_list.html#">See All Tasks</a>
-                              </div>
-                          </div>
                       </section>
                   </div><!-- /col-md-12-->
               </div><!-- /row -->
@@ -32,7 +27,7 @@
                                   <ul class="task-list">
 
 
-                      <% @education_tasks.each do |education_task| %>
+                      <% @eadmin_tasks.each do |eadmin_task| %>
                       
                          
                                       <li>
@@ -40,15 +35,15 @@
                                               <input type="checkbox" class="list-child" value=""  />
                                           </div>
                                           <div class="task-title">
-                                              <span class="task-title-sp" style="font-size:20;"><%= education_task.title %></span>
+                                              <span class="task-title-sp" style="font-size:20;"><%= eadmin_task.title %></span>
                                             
                                               <div class="pull-right hidden-phone">
                                                   <%= link_to '<button class="btn btn-info btn-xs">
-                                                    <i class=" fa fa-search"></i></button>'.html_safe, education_task %>
+                                                    <i class=" fa fa-search"></i></button>'.html_safe, eadmin_task %>
                                                     <%= link_to '<button class="btn btn-success btn-xs">
-                                                    <i class=" fa fa-pencil"></i></button>'.html_safe, edit_education_task_path(education_task) %>
+                                                    <i class=" fa fa-pencil"></i></button>'.html_safe, edit_eadmin_task_path(eadmin_task) %>
                                                     <%= link_to '<button class="btn btn-primary btn-xs">
-                                                    <i class=" fa fa-trash-o"></i></button>'.html_safe, education_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                    <i class=" fa fa-trash-o"></i></button>'.html_safe, eadmin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
                                                 
                                               </div>
                                           </div>
@@ -71,7 +66,9 @@
                          
                       </section>
                   </div><!-- /col-md-12-->
-              </div><!-- /row 
+              </div><!-- /row >
+
+
 
 
 

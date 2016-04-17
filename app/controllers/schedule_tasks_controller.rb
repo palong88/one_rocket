@@ -1,6 +1,8 @@
 class ScheduleTasksController < ApplicationController
+  
   before_action :set_schedule_task, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+   load_and_authorize_resource
 
   # GET /schedule_tasks
   # GET /schedule_tasks.json
