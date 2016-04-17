@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     end
 
 
-     private
+    private
     def set_role
       add_role(:registered) if self.roles.blank?
     end

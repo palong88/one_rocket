@@ -13,14 +13,15 @@
 
 
       
-        
-        <% if user_signed_in? %>
+
+        <% if can? :delete, @post %>
 
         <li class="<%= 'active' if current_page?(admin_path) %>"  ><%= link_to "Admin", admin_path %>
          </li>
 
          <li class="<%= 'active' if current_page?(education_path) %>"  ><%= link_to "Education", education_path %>
          </li>
+
 
          <li class="<%= 'active' if current_page?(schedule_path) %>"  ><%= link_to "Schedule", schedule_path %>
          </li>
@@ -35,13 +36,15 @@
           </li>
           
         <% else %>
-          <li class="<%= 'active' if current_page?(root_path) %>" ><%= link_to "Home", root_path %></li>
+          <li class="<%= 'active' if current_page?(root_path) %>" ><%= link_to "My ", employee_path %></li>
 
           <li class="<%= 'active' if current_page?(about_path) %>"><%= link_to "About", about_path %></li>
 
-          <li><%= link_to "Sign in", new_user_session_path %>
+          <li class="<%= 'active' if current_page?(destroy_user_session_path) %>"   ><%= link_to "Log out", destroy_user_session_path, method: :delete %>
           </li>
         <% end %>
+
+
     </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
