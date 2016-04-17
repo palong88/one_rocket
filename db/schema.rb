@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417020253) do
+ActiveRecord::Schema.define(version: 20160417133148) do
 
   create_table "admin_tasks", force: :cascade do |t|
     t.string   "title"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20160417020253) do
   end
 
   add_index "admin_tasks", ["user_id"], name: "index_admin_tasks_on_user_id"
+
+  create_table "e_education_tasks", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "media"
+    t.integer  "duedate"
+    t.integer  "complete"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "eadmin_tasks", force: :cascade do |t|
     t.string   "title"
@@ -49,6 +59,16 @@ ActiveRecord::Schema.define(version: 20160417020253) do
   end
 
   add_index "education_tasks", ["user_id"], name: "index_education_tasks_on_user_id"
+
+  create_table "eeducation_tasks", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "media"
+    t.integer  "due_date"
+    t.integer  "complete"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "employee_admin_tasks", force: :cascade do |t|
     t.string   "title"
@@ -123,6 +143,8 @@ ActiveRecord::Schema.define(version: 20160417020253) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.datetime "start_date"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

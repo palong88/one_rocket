@@ -1,7 +1,7 @@
 class EducationTask < ActiveRecord::Base
-	resourcify
-	belongs_to :user
-	after_create :copy
+		resourcify
+	belongs_to :education_tasks
+	
 
 
    

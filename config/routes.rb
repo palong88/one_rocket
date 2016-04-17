@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :eeducation_tasks
   resources :eadmin_tasks
   resources :eadmin_tasks
   resources :eadmin_tasks
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   get "education" => "education_tasks#index"
   get "admin" => "admin_tasks#index"
   get "employee" => "eadmin_tasks#index"
+  get "employee_education" => "eeducation_tasks#index"
   get "schedule" => "schedule_tasks#index"
 
 

@@ -3,7 +3,7 @@
 
 
 
-<h1>Listing EAdmin Tasks</h1>
+<h1>Your Onboarding Process</h1>
 
     <div class="row mt">
                 
@@ -36,6 +36,17 @@
                                           </div>
                                           <div class="task-title">
                                               <span class="task-title-sp" style="font-size:20;"><%= eadmin_task.title %></span>
+
+
+                                              <span class="<%= 'badge bg-theme' if eadmin_task.media == "admin" %>
+
+
+                                                <%= 'badge bg-warning' if eadmin_task.media == "learning" %> 
+
+
+                                                <%= 'badge bg-success' if eadmin_task.media == "Other" %>">
+
+                                                <%= eadmin_task.media %></span>
                                             
                                               <div class="pull-right hidden-phone">
                                                   <%= link_to '<button class="btn btn-info btn-xs">

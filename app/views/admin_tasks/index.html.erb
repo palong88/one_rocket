@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Admin Tasks</h1>
+<h1>Create and Update your Onboarding Process</h1>
 
     <div class="row mt">
                 
@@ -13,7 +13,7 @@
                      
 
                               <div class=" add-task-row">
-                                  <%= link_to 'New Admin task', new_admin_task_path, class: "btn btn-success btn-sm " %>
+                                  <%= link_to 'Create a New Task', new_admin_task_path, class: "btn btn-success btn-sm " %>
                                   
                               </div>
                           </div>
@@ -41,7 +41,17 @@
                                           </div>
                                           <div class="task-title">
                                               <span class="task-title-sp" style="font-size:20;"><%= admin_task.title %></span>
-                                            
+                                              <span class="<%= 'badge bg-theme' if admin_task.media == "admin" %>
+
+
+                                                <%= 'badge bg-warning' if admin_task.media == "learning" %> 
+
+
+                                                <%= 'badge bg-success' if admin_task.media == "Other" %>">
+
+                                                <%= admin_task.media %></span>
+
+                                                 
                                               <div class="pull-right hidden-phone">
                                                   <%= link_to '<button class="btn btn-info btn-xs">
                                                     <i class=" fa fa-search"></i></button>'.html_safe, admin_task %>
