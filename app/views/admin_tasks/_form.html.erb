@@ -16,28 +16,47 @@
 
             
             <!-- BASIC FORM ELELEMNTS -->
-          
+          <div class="row mt">
+          <div class="col-lg-6">
+                <div class="form-panel">
 
                           
                         <div class="form-group">
-                              <%= f.label :title %><br>
+                              <%= f.label :title  %><br>
                               <%= f.text_field :title, class: "form-control" %>
                             </div>
                             <div class="form-group">
                               <%= f.label :description %><br>
                               <%= f.text_area :description, class: "form-control" %>
                             </div>
-                           
-                            <div class="form-group">
-                              <%= f.label :tag %><br>
-
-                              <%= f.select :media, [['Admin','admin'],['Learning','learning'],['Other','other']], class: "form-control" %>
+                              <div class="form-group">
+                              <%= f.label :category %><br>
+                              <%= f.select :category, [['Admin','admin'],['Learning','learning'],['Other','other']], class: "form-control" %>
                             </div>
+                            
                             <div class="form-group">
+                              <%= f.label :media %><br>
 
-                              <p><%= f.number_field :due_date %>Days After the start date </p> 
+                              <%= f.text_field :media, class: "form-control" %>
+                            </div>
+
+                               <div class="form-group">
+                               
+                              <p><%= f.number_field :due_date %>  
+                              <p>Days</p>
+                              <%= f.select :when , [['Before Start','Before'],['After Start','After']], class: "form-control" %></p> 
+
+                            </div>
+
+                            <div class="form-group">
                               
+                                
                             </div>
+
+
+                           
+
+
 
                             <div class="actions ">
                            

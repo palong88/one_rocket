@@ -1,15 +1,5 @@
 
 
-   
- <!-- **********************************************************************************************************************************************************
-      RIGHT SIDEBAR CONTENT
-      *********************************************************************************************************************************************************** -->  
-
-
-          
-     
-
-
 
   
  
@@ -32,29 +22,39 @@
                                   <% @admin_tasks.order( 'admin_tasks.due_date ASC' ).each do |admin_task| %>
 
                                           <!-- First Member -->
-                                          <% if admin_task.media == "admin"%>
-                                          <div class="desc">
-                                           
-                                            <div class="details">
-                                              <a> <%= admin_task.title %></a><br/>
-                                                 <muted><%= admin_task.description %></muted><br/>
+                                          <% if admin_task.category == "admin"%>
+                                 
+                                                  <div class="desc">
+                                                   
+                                                    <div class="details">
+                                                      <h5>Title: <%= admin_task.title %></h5><br/>
+                                                         <muted>Description: <%= admin_task.description %></muted>
+                                                          <p><a href="http://<%= admin_task.media %> "><%= admin_task.media %> </a></p>
 
-                                              <p><%= admin_task.due_date %> days after start.</p>
-                                            </div>
-                                            <div class="pull-right hidden-phone">
-                                                                      <%= link_to '<button class="btn btn-info btn-xs">
-                                                                        <i class=" fa fa-search"></i></button>'.html_safe, admin_task %>
-                                                                        <%= link_to '<button class="btn btn-success btn-xs">
-                                                                        <i class=" fa fa-pencil"></i></button>'.html_safe, edit_admin_task_path(admin_task) %>
-                                                                        <%= link_to '<button class="btn btn-primary btn-xs">
-                                                                        <i class=" fa fa-trash-o"></i></button>'.html_safe, admin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
-                                                                    
-                                                                  </div>
+                                                      <p><%= admin_task.due_date %> days <%= admin_task.when %> start.</p>
+                                                    </div>
+                                                    <div class="pull-right hidden-phone">
+                                                                              <%= link_to '<button class="btn btn-info btn-xs">
+                                                                                <i class=" fa fa-search"></i></button>'.html_safe, admin_task %>
+                                                                                <%= link_to '<button class="btn btn-success btn-xs">
+                                                                                <i class=" fa fa-pencil"></i></button>'.html_safe, edit_admin_task_path(admin_task) %>
+                                                                                <%= link_to '<button class="btn btn-primary btn-xs">
+                                                                                <i class=" fa fa-trash-o"></i></button>'.html_safe, admin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                            
+                                                                          </div>
 
 
-                                          </div>
+                                                               </div>
+
+                                                      
+
+
+
+
+
+                                         
                                           
-                                     <%end%>
+                                                      <%end%>
 
                                             <%end%>
                                           
@@ -65,16 +65,16 @@
                                            <!-- USERS ONLINE SECTION -->
                                 <h3>Details & Info</h3>
                                   <% @admin_tasks.each do |admin_task| %>
-                              <% if admin_task.media == "learning"%>
+                              <% if admin_task.category == "learning"%>
                                           <div class="desc">
                                    
-                                            <div class="details">
-                                              <a> <%= admin_task.title %></a><br/>
-                                                 <muted><%= admin_task.description if admin_task.media == "admin" %> </muted><br/>
-                                                 <p><%= admin_task.due_date %> days after start.</p>
+                                          <div class="details">
+                                                      <h5>Title: <%= admin_task.title %></h5><br/>
+                                                         <muted>Description: <%= admin_task.description %></muted>
+                                                          <p><a href="http://<%= admin_task.media %> "><%= admin_task.media %> </a></p>
 
-                                              </p>
-                                            </div>
+                                                      <p><%= admin_task.due_date %> days <%= admin_task.when %> start.</p>
+                                                    </div>
                                             <div class="pull-right hidden-phone">
                                                                       <%= link_to '<button class="btn btn-info btn-xs">
                                                                         <i class=" fa fa-search"></i></button>'.html_safe, admin_task %>
@@ -98,16 +98,17 @@
                                 <h3>Onboarding Schedule</h3>
                                   <% @admin_tasks.each do |admin_task| %>
 
-                                     <% if admin_task.media == "other"%>
+                        <% if admin_task.category == "other"%>
                                           <!-- First Member -->
                                           <div class="desc">
                                            
                                             <div class="details">
-                                              <a> <%= admin_task.title %></a><br/>
-                                                 <muted><%= admin_task.description %></muted><br/>
-                                                 <p><%= admin_task.due_date %> days after start.</p>
-                                              </p>
-                                            </div>
+                                                      <h5>Title: <%= admin_task.title %></h5><br/>
+                                                         <muted>Description: <%= admin_task.description %></muted>
+                                                          <p><a href="http://<%= admin_task.media %> "><%= admin_task.media %> </a></p>
+
+                                                      <p><%= admin_task.due_date %> days <%= admin_task.when %> start.</p>
+                                                    </div>
 
                                             <div class="pr2-social centered">
                 <%= link_to '<button class="btn btn-info btn-xs">
@@ -121,8 +122,8 @@
                                            
                                           </div>
                                           
-                                     
-                                             <%end%>
+                                       <%end%>
+                                        
                                             <%end%>
                                           
                                       </div><!-- /col-lg-3 -->
@@ -136,5 +137,3 @@
 
 
   </div>
-       
-
