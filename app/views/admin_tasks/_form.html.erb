@@ -11,25 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
- 
-  <div class="field">
-    <%= f.label :tag %><br>
 
-    <%= f.select :media, [['Admin','admin'],['Learning','learning'],['Other','other']] %>
-  </div>
-  <div class="field">
-    <%= f.label :due_date %><br>
-    <%= f.number_field :due_date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+
+            
+            <!-- BASIC FORM ELELEMNTS -->
+          
+
+                          
+                        <div class="form-group">
+                              <%= f.label :title %><br>
+                              <%= f.text_field :title, class: "form-control" %>
+                            </div>
+                            <div class="form-group">
+                              <%= f.label :description %><br>
+                              <%= f.text_area :description, class: "form-control" %>
+                            </div>
+                           
+                            <div class="form-group">
+                              <%= f.label :tag %><br>
+
+                              <%= f.select :media, [['Admin','admin'],['Learning','learning'],['Other','other']], class: "form-control" %>
+                            </div>
+                            <div class="form-group">
+
+                              <p><%= f.number_field :due_date %>Days After the start date </p> 
+                              
+                            </div>
+
+                            <div class="actions ">
+                           
+                              <input type="submit" value="Create" class="btn btn-success btn-lg" >
+                              <%= link_to 'Cancel', admin_tasks_path, class: "btn btn-primary btn-lg" %>
+                            
+                            </div>
+                      </form>
+                  </div>
+              </div><!-- col-lg-12-->       
+            </div><!-- /row -->
+            
+
+
+</div>
+        
+
+        <% end %>

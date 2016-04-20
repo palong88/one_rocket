@@ -1,24 +1,32 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @admin_task.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @admin_task.description %>
-</p>
+<div class="container">
+    <div class="row">
+        <!-- Card Projects -->
+        <div class="col-md-6 col-md-offset-3">
+            <div class="card">
+              <div class="card-content">
+                    <p>Title:  <%= @admin_task.title %> </p>
+                </div>
+                
+                <div class="card-content">
+                    <p> Description: <%= @admin_task.description %></p>
+                </div>
+                 <div class="card-content">
+                    <p> Category:    <%= @admin_task.media %></p>  <p> Due <%= @admin_task.due_date %> day's after start date</p>
+                </div>
+                   
 
-<p>
-  <strong>Media:</strong>
-  <%= @admin_task.media %>
-</p>
 
-<p>
-  <strong>Due date:</strong>
-  <%= @admin_task.due_date %>
-</p>
+                <div class="card-action">
+                    <%= link_to 'Edit', edit_admin_task_path(@admin_task) %>
+                    <%= link_to 'Back', admin_tasks_path %>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<%= link_to 'Edit', edit_admin_task_path(@admin_task) %> |
-<%= link_to 'Back', admin_tasks_path %>
+
+

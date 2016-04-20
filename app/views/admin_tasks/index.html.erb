@@ -1,90 +1,140 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Create and Update your Onboarding Process</h1>
 
-    <div class="row mt">
-                
-                  <div class="col-md-12">
+   
+ <!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->  
 
-                      <section class="task-panel tasks-widget">
-                  
-                          <div class="panel-body">
-                              
+
+          
+     
+
+
+
+  
+ 
+
+
+
+<div class="row">
+           <h2>Create your Onboarding Process<div style="float: right;">
+            <%= link_to 'Create a New Task', new_admin_task_path, class: "btn btn-success btn-lg" %>
+             </div></h2>
+            
+  </div>
+
+<div class="col-xs-12">
+<div class="row">
+                <div class="col-lg-3 mb ds ">
+                                           <!-- USERS ONLINE SECTION -->
+                                <h3>Learning</h3>
+                               
+                                  <% @admin_tasks.order( 'admin_tasks.due_date ASC' ).each do |admin_task| %>
+
+                                          <!-- First Member -->
+                                          <% if admin_task.media == "admin"%>
+                                          <div class="desc">
+                                           
+                                            <div class="details">
+                                              <a> <%= admin_task.title %></a><br/>
+                                                 <muted><%= admin_task.description %></muted><br/>
+
+                                              <p><%= admin_task.due_date %> days after start.</p>
+                                            </div>
+                                            <div class="pull-right hidden-phone">
+                                                                      <%= link_to '<button class="btn btn-info btn-xs">
+                                                                        <i class=" fa fa-search"></i></button>'.html_safe, admin_task %>
+                                                                        <%= link_to '<button class="btn btn-success btn-xs">
+                                                                        <i class=" fa fa-pencil"></i></button>'.html_safe, edit_admin_task_path(admin_task) %>
+                                                                        <%= link_to '<button class="btn btn-primary btn-xs">
+                                                                        <i class=" fa fa-trash-o"></i></button>'.html_safe, admin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                    
+                                                                  </div>
+
+
+                                          </div>
+                                          
+                                     <%end%>
+
+                                            <%end%>
+                                          
+                                      </div><!-- /col-lg-3 -->
+                                     <div class="col-lg-3 mb ds">
+                                        
+
+                                           <!-- USERS ONLINE SECTION -->
+                                <h3>Details & Info</h3>
+                                  <% @admin_tasks.each do |admin_task| %>
+                              <% if admin_task.media == "learning"%>
+                                          <div class="desc">
+                                   
+                                            <div class="details">
+                                              <a> <%= admin_task.title %></a><br/>
+                                                 <muted><%= admin_task.description if admin_task.media == "admin" %> </muted><br/>
+                                                 <p><%= admin_task.due_date %> days after start.</p>
+
+                                              </p>
+                                            </div>
+                                            <div class="pull-right hidden-phone">
+                                                                      <%= link_to '<button class="btn btn-info btn-xs">
+                                                                        <i class=" fa fa-search"></i></button>'.html_safe, admin_task %>
+                                                                        <%= link_to '<button class="btn btn-success btn-xs">
+                                                                        <i class=" fa fa-pencil"></i></button>'.html_safe, edit_admin_task_path(admin_task) %>
+                                                                        <%= link_to '<button class="btn btn-primary btn-xs">
+                                                                        <i class=" fa fa-trash-o"></i></button>'.html_safe, admin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                    
+                                                                  </div>
+                                          </div>
+                                          
+                                     <%end%>
+
+                                            <%end%>
+                                          
+                                      </div><!-- /col-lg-3 -->
+                  <div class="col-lg-3 mb ds">
+                                        
+
+                                           <!-- USERS ONLINE SECTION -->
+                                <h3>Onboarding Schedule</h3>
+                                  <% @admin_tasks.each do |admin_task| %>
+
+                                     <% if admin_task.media == "other"%>
+                                          <!-- First Member -->
+                                          <div class="desc">
+                                           
+                                            <div class="details">
+                                              <a> <%= admin_task.title %></a><br/>
+                                                 <muted><%= admin_task.description %></muted><br/>
+                                                 <p><%= admin_task.due_date %> days after start.</p>
+                                              </p>
+                                            </div>
+
+                                            <div class="pr2-social centered">
+                <%= link_to '<button class="btn btn-info btn-xs">
+                                                                        <i class=" fa fa-search"></i></button>'.html_safe, admin_task %>
+                                                                        <%= link_to '<button class="btn btn-success btn-xs">
+                                                                        <i class=" fa fa-pencil"></i></button>'.html_safe, edit_admin_task_path(admin_task) %>
+                                                                        <%= link_to '<button class="btn btn-primary btn-xs">
+                                                                        <i class=" fa fa-trash-o"></i></button>'.html_safe, admin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                    
+                </div>
+                                           
+                                          </div>
+                                          
+                                     
+                                             <%end%>
+                                            <%end%>
+                                          
+                                      </div><!-- /col-lg-3 -->
+
                      
 
-                              <div class=" add-task-row">
-                                  <%= link_to 'Create a New Task', new_admin_task_path, class: "btn btn-success btn-sm " %>
-                                  
-                              </div>
-                          </div>
-                      </section>
-                  </div><!-- /col-md-12-->
-              </div><!-- /row -->
-              <div class="row mt">
-                
-                  <div class="col-md-12">
 
-                      <section class="task-panel tasks-widget">
-                  
-                          <div class="panel-body">
-                            <div class="task-content">
-
-                                  <ul class="task-list">
+           </div>
+    
+      
 
 
-                      <% @admin_tasks.each do |admin_task| %>
-                      
-                         
-                                      <li>
-                                          <div class="task-checkbox">
-                                              <input type="checkbox" class="list-child" value=""  />
-                                          </div>
-                                          <div class="task-title">
-                                              <span class="task-title-sp" style="font-size:20;"><%= admin_task.title %></span>
-                                              <span class="<%= 'badge bg-theme' if admin_task.media == "admin" %>
-
-
-                                                <%= 'badge bg-warning' if admin_task.media == "learning" %> 
-
-
-                                                <%= 'badge bg-success' if admin_task.media == "Other" %>">
-
-                                                <%= admin_task.media %></span>
-
-                                                 
-                                              <div class="pull-right hidden-phone">
-                                                  <%= link_to '<button class="btn btn-info btn-xs">
-                                                    <i class=" fa fa-search"></i></button>'.html_safe, admin_task %>
-                                                    <%= link_to '<button class="btn btn-success btn-xs">
-                                                    <i class=" fa fa-pencil"></i></button>'.html_safe, edit_admin_task_path(admin_task) %>
-                                                    <%= link_to '<button class="btn btn-primary btn-xs">
-                                                    <i class=" fa fa-trash-o"></i></button>'.html_safe, admin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
-                                                
-                                              </div>
-                                          </div>
-                                      </li>
-                    
-                      <% end %>
-
-
-
-
-     
-          
-
-                                    </ul>
-                                  </div>
-                                </div>
-                              
-                                       
-
-                         
-                      </section>
-                  </div><!-- /col-md-12-->
-              </div><!-- /row 
-
-
-
-
+  </div>
        
 

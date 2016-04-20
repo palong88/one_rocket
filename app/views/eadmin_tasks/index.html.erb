@@ -28,15 +28,13 @@
 
 
                       <% @eadmin_tasks.each do |eadmin_task| %>
-                      
-                         
+                        
                                       <li>
                                           <div class="task-checkbox">
                                               <input type="checkbox" class="list-child" value=""  />
                                           </div>
                                           <div class="task-title">
                                               <span class="task-title-sp" style="font-size:20;"><%= eadmin_task.title %></span>
-
 
                                               <span class="<%= 'badge bg-theme' if eadmin_task.media == "admin" %>
 
@@ -47,7 +45,26 @@
                                                 <%= 'badge bg-success' if eadmin_task.media == "Other" %>">
 
                                                 <%= eadmin_task.media %></span>
+                                               
+                                               
+                                                 <%= due_month = eadmin_task.created_at.strftime("%m")  %>/
+                                                 <% due_day = eadmin_task.created_at.strftime("%d") %>
+                                                 
+                                                 <% due_day.to_i %>
+                                                 <% x = eadmin_task.due_date  %>
+                                               
+                                                 <%= due_day.to_i  + x.to_i %>/
+
+                                                 <%= due_year = eadmin_task.created_at.strftime("%y") %>
+                                                 
+
+
+                                                 
+                                                 
+                                              
+
                                             
+
                                               <div class="pull-right hidden-phone">
                                                   <%= link_to '<button class="btn btn-info btn-xs">
                                                     <i class=" fa fa-search"></i></button>'.html_safe, eadmin_task %>
@@ -78,6 +95,9 @@
                       </section>
                   </div><!-- /col-md-12-->
               </div><!-- /row >
+
+
+              
 
 
 

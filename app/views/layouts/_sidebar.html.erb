@@ -1,46 +1,30 @@
-<% if user_signed_in? %>
- <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-                
-                    
-                  <li class="mt">
-                      <a class="active" href="index.php">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
-                      </a>
-                  </li>
+<% if signed_in? %>
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+      <li class="sidebar_overview">Hello</li>
+      
+        <li class="sidebar_personal_purchases"></li>
 
-                  <li class="mt">
-                      <a class="" href="teams-dashboard.php">
-                          <i class="fa fa-users"></i>
-                          <span>Teams</span>
-                      </a>
-                  </li>
-                 
-                    <li class="mt">
-                      <a class="" href="insights.php">
-                          <i class="fa fa-calendar"></i>
-                          <span>Insights</span>
-                      </a>
-                  </li>
-                    <li class="mt">
-                      <a class="" href="settings.php">
-                          <i class="fa fa-gears"></i>
-                          <span>Settings</span>
-                      </a>
-                  </li>
-                    
-                    
-                    
+      <!-- Only the COO, the operations chief, will be able to link his company to a bank account. -->
+  
+        <li class="sidebar_stripe_settings"></li>
 
+    </ul>
 
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
+    <ul class="nav nav-sidebar">
+      <!-- company_id is from the sessions_helper.id -->
+    
+        <li class="sidebar_company_info">TEst1</li>
+        <li class="sidebar_company_people">Test2</li>
+        <li class="sidebar_purchases">test 3</li>
+    
+      
+          <li class="sidebar_post_items_for_sale">Post</li>
+          <li class="sidebar_posted_items">Posted</li> 
+          <li class="sidebar_orders">Requests</li>
+     
+      
+  </ul>
 
-
-<% end%>
+</div>
+<% end %>

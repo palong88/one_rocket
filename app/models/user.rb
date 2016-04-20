@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
       
 
       AdminTask.all.each do |default_b|
-        
-        eadmin_tasks.create(title: default_b.title, description: default_b.description, media: default_b.media, due_date: tmin, user_id: id )
+       
+        eadmin_tasks.create(title: default_b.title, description: default_b.description, media: default_b.media, due_date: default_b.due_date, user_id: id )
       end
     end
 
