@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :people
+  resources :people
   resources :eeducation_tasks
   resources :eadmin_tasks
   resources :eadmin_tasks
@@ -18,11 +20,12 @@ Rails.application.routes.draw do
   
   root "admin_tasks#index"
   get "modal" => "pages#modal"
-  get "people" => "users#index"
+
   get "new" => "users#new"
   get "show" => "users#show"
   get "about" => "pages#about"
-  get "people" => "pins#index"
+  get "pins" => "pins#index"
+  get "people" => "people#index"
   get "education" => "education_tasks#index"
   get "admin" => "admin_tasks#index"
   get "employee" => "eadmin_tasks#index"

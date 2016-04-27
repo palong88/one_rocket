@@ -1,5 +1,77 @@
-<% @users = User.all %>
-<% @users.each do |user| %>
-  <%= user.username %><br/>
-  <%= user.email %><br/>
-<% end %>
+<p id="notice"><%= notice %></p>
+
+
+
+
+
+
+  <div class="row">
+           <h2>People <div style="float: right;">
+          <%= link_to 'Create New Employee ', new_person_path, class: "btn btn-success btn-lg "%>
+             </div></h2>
+            
+  </div>
+
+
+
+    <% @people.each do |person| %>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 mb">
+              <!-- WHITE PANEL - TOP USER -->
+              <div class="white-panel pn">
+                <div class="white-header">
+                
+                </div>
+                     <%= image_tag("profile.png",  size: "80x80", class: "img-circle") %>
+
+                <p> 
+
+                  </p>
+                <p><b><%= person.name %></b></p>
+                <p><b><%= person.email %></b></p>
+                  <div class="row">
+               
+                      <p class="small mt">Start Date</p>
+                      <p><%= person.start_date.strftime("%d %b. %Y") %></p>
+                
+                   
+                               
+                 
+                    <div class="pull-right hidden-phone">
+                                                                      
+                                                                        <%= link_to '<button class="btn btn-success btn-xs">
+                                                                        <i class=" fa fa-pencil"></i></button>'.html_safe, edit_person_path(person) %>
+                                                                        <%= link_to '<button class="btn btn-primary btn-xs">
+                                                                        <i class=" fa fa-trash-o"></i></button>'.html_safe, person, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                    
+                                                                  </div>
+            
+              </div>
+
+                    
+                  </div>
+      
+            </div>
+            
+    <% end %>
+
+ 
+
+<!--
+  </tbody>
+</table>
+
+<br>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
