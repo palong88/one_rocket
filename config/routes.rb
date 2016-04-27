@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :users
   end
   
-  root "pages#home"
+  root "admin_tasks#index"
   get "modal" => "pages#modal"
   get "people" => "users#index"
   get "new" => "users#new"

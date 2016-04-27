@@ -12,6 +12,7 @@
              </div></h2>
             
   </div>
+    
 
 <div class="col-xs-12">
 <div class="row">
@@ -19,16 +20,50 @@
                                            <!-- USERS ONLINE SECTION -->
                                 <h3>Learning</h3>
                                
-                                  <% @admin_tasks.order( 'admin_tasks.due_date ASC' ).each do |admin_task| %>
+                                <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
 
                                           <!-- First Member -->
-                                          <% if admin_task.category == "admin"%>
+                                          <% if admin_task.category == "learning" && admin_task.when == "Before" %>
                                  
                                                   <div class="desc">
                                                    
                                                     <div class="details">
-                                                      <h5>Title: <%= admin_task.title %></h5><br/>
-                                                         <muted>Description: <%= admin_task.description %></muted>
+                                                      <h5><%= admin_task.title %></h5><br/>
+                                                         <muted> <%= admin_task.description.first(40) %>...</muted>
+                                                          <p><a href="http://<%= admin_task.media %> "><%= admin_task.media %> </a></p>
+
+                                                      <p><%= admin_task.due_date %> days <%= admin_task.when %> start.</p>
+                                                    </div>
+                                                    <div class="pull-right hidden-phone">
+                                                                              <%= link_to '<button class="btn btn-info btn-xs">
+                                                                                <i class=" fa fa-search"></i></button>'.html_safe, admin_task %>
+                                                                                <%= link_to '<button class="btn btn-success btn-xs">
+                                                                                <i class=" fa fa-pencil"></i></button>'.html_safe, edit_admin_task_path(admin_task) %>
+                                                                                <%= link_to '<button class="btn btn-primary btn-xs">
+                                                                                <i class=" fa fa-trash-o"></i></button>'.html_safe, admin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                            
+                                                                          </div>
+
+
+                                                               </div>
+
+                                                      
+
+
+
+
+
+                                         
+                                          
+                                                      <%end%>
+
+                                                <% if admin_task.category == "learning" && admin_task.when == "After" %>
+                                 
+                                                  <div class="desc">
+                                                   
+                                                    <div class="details">
+                                                      <h5><%= admin_task.title %></h5><br/>
+                                                         <muted> <%= admin_task.description.first(40) %>...</muted>
                                                           <p><a href="http://<%= admin_task.media %> "><%= admin_task.media %> </a></p>
 
                                                       <p><%= admin_task.due_date %> days <%= admin_task.when %> start.</p>
@@ -63,14 +98,40 @@
                                         
 
                                            <!-- USERS ONLINE SECTION -->
-                                <h3>Details & Info</h3>
+                                <h3>Getting Started</h3>
                                   <% @admin_tasks.each do |admin_task| %>
-                              <% if admin_task.category == "learning"%>
+                              <% if admin_task.category == "started" && admin_task.when == "Before"%>
                                           <div class="desc">
                                    
                                           <div class="details">
-                                                      <h5>Title: <%= admin_task.title %></h5><br/>
-                                                         <muted>Description: <%= admin_task.description %></muted>
+                                                      <h5><%= admin_task.title %></h5><br/>
+                                                         <muted><%= admin_task.description.first(40) %>...</muted>
+                                                          <p><a href="http://<%= admin_task.media %> "><%= admin_task.media %> </a></p>
+
+                                                      <p><%= admin_task.due_date %> days <%= admin_task.when %> start.</p>
+                                                    </div>
+                                            <div class="pull-right hidden-phone">
+                                                                      <%= link_to '<button class="btn btn-info btn-xs">
+                                                                        <i class=" fa fa-search"></i></button>'.html_safe, admin_task %>
+                                                                        <%= link_to '<button class="btn btn-success btn-xs">
+                                                                        <i class=" fa fa-pencil"></i></button>'.html_safe, edit_admin_task_path(admin_task) %>
+                                                                        <%= link_to '<button class="btn btn-primary btn-xs">
+                                                                        <i class=" fa fa-trash-o"></i></button>'.html_safe, admin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                    
+                                                                  </div>
+                                          </div>
+                                          
+                                     <%end%>
+
+
+
+
+                                     <% if admin_task.category == "started" && admin_task.when == "After"%>
+                                          <div class="desc">
+                                   
+                                          <div class="details">
+                                                      <h5><%= admin_task.title %></h5><br/>
+                                                         <muted><%= admin_task.description.first(40) %>...</muted>
                                                           <p><a href="http://<%= admin_task.media %> "><%= admin_task.media %> </a></p>
 
                                                       <p><%= admin_task.due_date %> days <%= admin_task.when %> start.</p>
@@ -95,16 +156,44 @@
                                         
 
                                            <!-- USERS ONLINE SECTION -->
-                                <h3>Onboarding Schedule</h3>
+                                <h3>Milestones</h3>
                                   <% @admin_tasks.each do |admin_task| %>
 
-                        <% if admin_task.category == "other"%>
+                        <% if admin_task.category == "milestones" && admin_task.when == "Before"%>
                                           <!-- First Member -->
                                           <div class="desc">
                                            
                                             <div class="details">
-                                                      <h5>Title: <%= admin_task.title %></h5><br/>
-                                                         <muted>Description: <%= admin_task.description %></muted>
+                                                      <h5> <%= admin_task.title %></h5><br/>
+                                                         <muted> <%= admin_task.description.first(40) %>...</muted>
+                                                          <p><a href="http://<%= admin_task.media %> "><%= admin_task.media %> </a></p>
+
+                                                      <p><%= admin_task.due_date %> days <%= admin_task.when %> start.</p>
+                                                    </div>
+
+                                            <div class="pr2-social centered">
+                <%= link_to '<button class="btn btn-info btn-xs">
+                                                                        <i class=" fa fa-search"></i></button>'.html_safe, admin_task %>
+                                                                        <%= link_to '<button class="btn btn-success btn-xs">
+                                                                        <i class=" fa fa-pencil"></i></button>'.html_safe, edit_admin_task_path(admin_task) %>
+                                                                        <%= link_to '<button class="btn btn-primary btn-xs">
+                                                                        <i class=" fa fa-trash-o"></i></button>'.html_safe, admin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                    
+                </div>
+                                           
+                                          </div>
+                                          
+                                       <%end%>
+
+
+
+                                        <% if admin_task.category == "milestones" && admin_task.when == "After"%>
+                                          <!-- First Member -->
+                                          <div class="desc">
+                                           
+                                            <div class="details">
+                                                      <h5> <%= admin_task.title %></h5><br/>
+                                                         <muted> <%= admin_task.description.first(40) %>...</muted>
                                                           <p><a href="http://<%= admin_task.media %> "><%= admin_task.media %> </a></p>
 
                                                       <p><%= admin_task.due_date %> days <%= admin_task.when %> start.</p>
@@ -137,3 +226,5 @@
 
 
   </div>
+
+
