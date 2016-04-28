@@ -4,7 +4,6 @@ class CreatePeople < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.date :start_date
-
       t.timestamps null: false
     end
   end

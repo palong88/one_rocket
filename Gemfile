@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 gem 'jquery-ui-rails'
+
 # Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets
@@ -17,6 +18,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'bootstrap-sass'
 gem 'devise', '~> 4.0.0.rc2'
 gem 'bootstrap-modal-rails'
+gem 'materialize-sass', '~> 0.96.1'
+gem 'jquery-turbolinks'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

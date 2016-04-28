@@ -16,62 +16,80 @@
 
             
             <!-- BASIC FORM ELELEMNTS -->
-          <div class="row mt">
-          <div class="col-lg-6">
+         
+          
                 <div class="form-panel">
+                     <div class="input-field">
+                      <%= f.label :category  %><br><br>
+
+
+                                <%= f.radio_button :category, 1 %> <%= f.label :category, "Learning",value: 1 %>
+                                <%= f.radio_button :category, 2 %> <%= f.label :category, "Getting Started" ,value: 2%>
+                                 <%= f.radio_button :category, 3 %> <%= f.label :category, "Milestones",value: 3 %>
+                                 <%= f.radio_button :category, 4 %> <%= f.label :category, "Personal", value: 4 %>
+
+                                
+                              </div><br>
 
                           
-                        <div class="form-group">
+                        <div class="input-field">
                               <%= f.label :title  %><br>
-                              <%= f.text_field :title, class: "form-control" %>
-                            </div>
-                            <div class="form-group">
+                              <%= f.text_field :title %>
+                        </div>
+
+                        <div class="input-field">
                               <%= f.label :description %><br>
-                              <%= f.text_area :description, class: "form-control" %>
-                            </div>
-                              <div class="form-group">
-                              <%= f.label :category %><br>
-                              <%= f.select :category, [['Learning','learning'],['Getting Started','started'],['Milestones','milestones']], class: "form-control" %>
-                            </div>
+                              <%= f.text_area :description, class: "materialize-textarea" %>
+                        </div>
+                        
+
+                       
                             
-                            <div class="form-group">
-                              <%= f.label :media %><br>
+                        <div class="input-field">
+                              <%= f.label :media %>
 
                               <%= f.text_field :media, class: "form-control" %>
-                            </div>
+                        </div>
 
-                               <div class="form-group">
-                               
-                              <p><%= f.number_field :due_date %>  
-                              <p>Days</p>
-                              <%= f.select :when , [['Before Start','Before'],['After Start','After']], class: "form-control"%></p> 
+                         
 
-                            </div>
+                         <div class="row">
+        <div class="input-field col s6">
+          
+          <label for="Days">Days</label>
+          <%= f.number_field :due_date, :placeholder => "How Many Days"  %></p>
+        </div>
+        <div class="input-field col s6">
+          <label for="when">When</label><br>
 
-                            <div class="form-group">
+          <p> <%= f.radio_button :when, 1 %> <%= f.label :when, "Before Start Date",value: 1 %>
+                                <%= f.radio_button :when, 2 %> <%= f.label :when, " After Start Date" ,value: 2%> </p>
+        </div>
+      </div>
+
+
+                          
+
+  <div class="actions ">
+                             
+                                <input type="submit" value="Update" class="btn btn-success btn-lg" >
+                                <%= link_to 'Cancel', admin_tasks_path, class: "btn btn-primary btn-lg" %>
                               
-                                
-                            </div>
+                              </div>
+                             
 
-
-                           
-
-
-
-                            <div class="actions ">
-                           
-                              <input type="submit" value="Create" class="btn btn-success btn-lg" >
-                              <%= link_to 'Cancel', admin_tasks_path, class: "btn btn-primary btn-lg" %>
                             
-                            </div>
-                      </form>
-                  </div>
-              </div><!-- col-lg-12-->       
-            </div><!-- /row -->
+
+
+                           
+
+
+                            
+             
             
 
 
-</div>
+
         
 
         <% end %>

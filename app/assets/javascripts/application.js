@@ -11,11 +11,29 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 
 
+//= require materialize-sprockets
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
 //= require_tree .
+
+
+
+    $$(document).on("page:load ready", function(){
+    $("input.datepicker").datepicker();
+});
+
+
+ <script>
+$( ".selector" ).tabs({
+  activate: function(event,ui) {
+    var anchor = $(event.target).attr("id");
+    location.hash = anchor; //this will add #id to your url, which upon refresh will trigger the jquery tab selection event
+  }
+}); 
+</script>
