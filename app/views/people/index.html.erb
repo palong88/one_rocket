@@ -32,7 +32,8 @@
             <div class="card-content white-text valign center">
               <p><%= image_tag("profile.png",  size: "110x80", class: "circle responsive-img") %></p><br>
               <span class="card-title "><%= person.name %></span>
-              <p><b>Email: </b> <br><%= person.email %><br><b> Start Date: </b><br><%= person.start_date.strftime("%d %b. %Y") %></p>
+              <p><b>Email: </b> <br><%= person.email %><br><b> Start Date: </b><br><%= Date.parse(person.start_date).strftime("%d %b. %Y") %></p>
+              
             </div>
             <div class="card-action">
                       <div class=" valign center">
