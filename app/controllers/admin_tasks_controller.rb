@@ -8,7 +8,7 @@ class AdminTasksController < ApplicationController
   # GET /admin_tasks.json
   def index
     @admin_tasks = AdminTask.all
-    @admin_tasks = current_user.admin_tasks
+  
     
     
   end
