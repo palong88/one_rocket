@@ -21,6 +21,7 @@ gem 'bootstrap-modal-rails'
 gem 'materialize-sass', '~> 0.96.1'
 gem 'jquery-turbolinks'
 
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem "font-awesome-rails"
