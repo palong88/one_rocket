@@ -24,5 +24,6 @@ module Onerocketing
     config.active_record.raise_in_transactional_callbacks = true
     #Required for Heroku
     config.assets.initialize_on_precompile = false
+    
   end
 end
