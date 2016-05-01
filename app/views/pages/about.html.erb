@@ -1,2 +1,31 @@
 <h1>Contact US</h1>
 <p>patrick@onerocket.io</p>
+ 
+<p>
+    <div class="tabbuttonsdiv">
+  <a href="#item1" class="tabbuttons">item 1</a>
+  <a href="#item2" class="tabbuttons">item 2</a>
+  <a href="#item3" class="tabbuttons">item 3</a>
+
+    </div>
+<div class="items">
+  <p id="item1" class="tabcontent">... item 1...
+  <p id="item2" class="tabcontent">... item 2...
+  <p id="item3" class="tabcontent">...
+
+</div>
+
+
+  <script>
+    
+$(function() {    
+    $('.tabs').on('click', function() {
+        $('.tabs').removeClass('activeTab'); /* solution for a. */
+        $(this).addClass('activeTab'); /* solution for a. */
+        var i = $(this).attr('href');
+        $('.items p').hide();
+        $(i).show();
+    });
+});
+  </script>
+

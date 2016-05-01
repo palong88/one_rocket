@@ -20,14 +20,14 @@
   
  
     <div class="col s12">
-      <ul class="tabs">
+      <ul class="tabs" id="tabs">
         <li class="tab col s3" ><a class="active" href="#tabs-1">Learning</a></li>
         <li class="tab col s3"><a  href="#tabs-2">Setting Up</a></li>
         <li class="tab col s3"><a href="#tabs-3">Milestones</a></li>
         <li class="tab col s3"><a href="#tabs-4">Personal Details</a></li>
       </ul>
     </div>
-
+<div class="items">
     <div id="tabs-1" class="col s6 ">
       <h5>Before Start Date</h5>
       <!-- First one Ruby Code-->
@@ -464,6 +464,19 @@
 
     </div>
   </div>
+
+  <script>
+    
+$(function() {    
+    $('.tabs').on('click', function() {
+        $('.tabs').removeClass('activeTab'); /* solution for a. */
+        $(this).addClass('activeTab'); /* solution for a. */
+        var i = $(this).attr('href');
+        $('.items p').hide();
+        $(i).show();
+    });
+});
+  </script>
 
 
  
