@@ -1,0 +1,66 @@
+   <h2>Learning Tasks</h2>
+
+  <h5>After Start Date</h5>
+ <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
+
+ <% if admin_task.category == "1" && admin_task.when == "Before" %>
+  <ul class="collection">
+    <li class="collection-item">
+      
+      <span class="title"><p>
+                              <input type="checkbox" id="<%= admin_task.id %>" />
+                              <label for="<%= admin_task.id %>"> <%= admin_task.title %>  </label>
+                            
+                             
+                          
+
+                          
+
+                        
+          
+                                 </p></span>
+      <p><%= admin_task.description %> <br>
+         
+      </p>
+
+      <p><a href="http://<%= admin_task.media %>"><%= admin_task.media %></a></p>
+      <p>Due Date: <%= due_month = admin_task.created_at.strftime("%m")  %>/
+                                                 <% due_day = admin_task.created_at.strftime("%d") %>
+                                                 
+                                                 <% due_day.to_i %>
+                                                 <% x = admin_task.due_date  %>
+                                               
+                                                 <%= due_day.to_i  + x.to_i %>/
+
+                                                 <%= due_year = admin_task.created_at.strftime("%y") %></p>
+
+    </li>
+
+   </ul>
+
+   
+
+   <% end %>
+ <% end %>
+
+ <h5>After You Start </h5>
+ <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
+
+ <% if admin_task.category == "1" && admin_task.when == "After" %>
+  <ul class="collection">
+    <li class="collection-item avatar">
+      <img src="images/yuna.jpg" alt="" class="circle">
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+
+   </ul>
+
+
+
+ <% end %>
+  
+<% end %>

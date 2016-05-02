@@ -35,29 +35,30 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "1" && admin_task.when == "Before" %>
+            <% if admin_task.category == "Learning" && admin_task.when == "Before" %>
 
 
                    
                       <li>
                         <div class="collapsible-header ">
-                        <div style="float: left;"> 
-                              <%= admin_task.title %>  
-                          </div>
+                        
+                           <p>
+                           
+                             
+                           <strong><%= admin_task.title %>  </strong>
 
                           
 
-                          <div style="float: right;">
+                        
                             
                              <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, admin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
                                                                             
                                <%= link_to ' <i class="material-icons right">mode_edit</i>'.html_safe, edit_admin_task_path(admin_task) %>
 
-                                 
+                                 </p>
                                                       
 
 
-                          </div>
                         </div>
 
                         <div class="collapsible-body"><p><strong>Description:</strong><%= admin_task.description %></p><br>
@@ -88,7 +89,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date ASC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "1" && admin_task.when == "After" %>
+            <% if admin_task.category == "Learning" && admin_task.when == "After" %>
 
 
                    
@@ -148,7 +149,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "2" && admin_task.when == "Before" %>
+            <% if admin_task.category == "Setting Up" && admin_task.when == "Before" %>
 
 
                    
@@ -198,7 +199,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date ASC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "2" && admin_task.when == "After" %>
+            <% if admin_task.category == "Setting Up" && admin_task.when == "After" %>
 
 
                    
@@ -255,7 +256,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "3" && admin_task.when == "Before" %>
+            <% if admin_task.category == "Milestones" && admin_task.when == "Before" %>
 
 
                    
@@ -305,7 +306,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date ASC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "3" && admin_task.when == "After" %>
+            <% if admin_task.category == "Milestones" && admin_task.when == "After" %>
 
 
                    
@@ -364,7 +365,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "4" && admin_task.when == "Before" %>
+            <% if admin_task.category == "Personal Survey" && admin_task.when == "Before" %>
 
 
                    
@@ -414,7 +415,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date ASC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "4" && admin_task.when == "After" %>
+            <% if admin_task.category == "Personal Survey" && admin_task.when == "After" %>
 
 
                    
