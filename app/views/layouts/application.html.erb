@@ -28,9 +28,15 @@
   <% end %>
 
    <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
+       
 
+        <script>
+     
+             Materialize.toast("<%= value %>", 5000);
+ 
+
+        </script>
+      <% end %>
 
 
 
