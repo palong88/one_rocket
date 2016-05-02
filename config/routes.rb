@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "modal" => "pages#modal"
 
   get "new" => "users#new"
+  get "all" => "admin_tasks#all"
   get "show" => "users#show"
   get "about" => "pages#about"
   get "pins" => "pins#index"

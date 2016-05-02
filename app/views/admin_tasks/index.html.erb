@@ -24,7 +24,7 @@
         <li class="tab col s3" ><a class="active" href="#tabs-1">Learning</a></li>
         <li class="tab col s3"><a  href="#tabs-2">Setting Up</a></li>
         <li class="tab col s3"><a href="#tabs-3">Milestones</a></li>
-        <li class="tab col s3"><a href="#tabs-4">Personal Details</a></li>
+        <li class="tab col s3"><a href="#tabs-4">Personal Survey</a></li>
       </ul>
     </div>
 <div class="items">
@@ -35,7 +35,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "1" && admin_task.when == "1" %>
+            <% if admin_task.category == "1" && admin_task.when == "Before" %>
 
 
                    
@@ -88,7 +88,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date ASC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "1" && admin_task.when == "2" %>
+            <% if admin_task.category == "1" && admin_task.when == "After" %>
 
 
                    
@@ -148,7 +148,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "2" && admin_task.when == "1" %>
+            <% if admin_task.category == "2" && admin_task.when == "Before" %>
 
 
                    
@@ -198,7 +198,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date ASC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "2" && admin_task.when == "2" %>
+            <% if admin_task.category == "2" && admin_task.when == "After" %>
 
 
                    
@@ -255,7 +255,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "3" && admin_task.when == "1" %>
+            <% if admin_task.category == "3" && admin_task.when == "Before" %>
 
 
                    
@@ -305,7 +305,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date ASC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "3" && admin_task.when == "2" %>
+            <% if admin_task.category == "3" && admin_task.when == "After" %>
 
 
                    
@@ -364,7 +364,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "4" && admin_task.when == "1" %>
+            <% if admin_task.category == "4" && admin_task.when == "Before" %>
 
 
                    
@@ -414,7 +414,7 @@
 
          <% @admin_tasks.order( 'admin_tasks.due_date ASC' ).each do |admin_task| %>
 
-            <% if admin_task.category == "4" && admin_task.when == "2" %>
+            <% if admin_task.category == "4" && admin_task.when == "After" %>
 
 
                    
@@ -464,19 +464,6 @@
 
     </div>
   </div>
-
-  <script>
-    
-$(function() {    
-    $('.tabs').on('click', function() {
-        $('.tabs').removeClass('activeTab'); /* solution for a. */
-        $(this).addClass('activeTab'); /* solution for a. */
-        var i = $(this).attr('href');
-        $('.items p').hide();
-        $(i).show();
-    });
-});
-  </script>
 
 
  
