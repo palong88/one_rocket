@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get "new" => "users#new"
   get "all" => "admin_tasks#all"
   get "learning" => "admin_tasks#learning"
+  get "getting-started" => "admin_tasks#getting-started"
+  get "setting-up" => "admin_tasks#setting-up"
 
   get "show" => "users#show"
   get "about" => "pages#about"

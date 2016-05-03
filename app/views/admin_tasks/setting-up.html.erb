@@ -1,0 +1,91 @@
+    <div class="row">
+                <div class="col s12">
+
+                  <h3 class="center"> Setting Up</h3><br>
+                  <h5 class="center">My Progress</h5>
+                  <h5 class="center">20%</h6>
+                    <div class="progress center">
+                          <div class="determinate" style="width: 20%"></div>
+                      </div>
+        
+                </div>
+
+
+
+
+                <div class="col s6 left"> 
+                  <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
+                          <h5 class="center">Before You Start</h5>
+                         <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
+
+                         <% if admin_task.category == "Setting Up" && admin_task.when == "Before" %>
+
+                              <li>
+                                    <div class="collapsible-header">  <p>
+      <input type="checkbox" id="<%= admin_task.id %>" />
+      <label for="<%= admin_task.id %>"><%= admin_task.title %></label>
+    <a href="#!" class="secondary-content right"><i class="material-icons">send</i></a></p> </div>
+                                    <div class="collapsible-body">
+                                      <p><strong> Descrption: </strong><%= admin_task.description %><br><br>
+                                      <strong> Media: </strong><a href="http://<%= admin_task.media %>"><%= admin_task.media %></a> <br> <br>
+                                      <strong> Due Date:</strong>  <%= due_month = admin_task.created_at.strftime("%m")  %>/
+                                                           <% due_day = admin_task.created_at.strftime("%d") %>
+                                                           
+                                                           <% due_day.to_i %>
+                                                           <% x = admin_task.due_date  %>
+                                                         
+                                                           <%= due_day.to_i  + x.to_i %>/
+
+                                                           <%= due_year = admin_task.created_at.strftime("%y") %></p>
+                                      </div>
+                              </li>
+             <% end %>
+           <% end %>
+           </ul>
+
+          </div>
+
+
+
+          <div class="col s6 left">
+
+                  
+                 <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
+                          <h5 class="center">After You Start</h5>
+                         <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
+
+                         <% if admin_task.category == "Setting Up" && admin_task.when == "After" %>
+
+                              <li>
+                                    <div class="collapsible-header">  <p>
+      <input type="checkbox" id="<%= admin_task.id %>" />
+      <label for="<%= admin_task.id %>"><%= admin_task.title %></label>
+    <a href="#!" class="secondary-content right"><i class="material-icons">send</i></a></p> </div>
+                                    <div class="collapsible-body">
+                                      <p><strong> Descrption: </strong><%= admin_task.description %><br><br>
+                                      <strong> Media: </strong><a href="http://<%= admin_task.media %>"><%= admin_task.media %></a> <br> <br>
+                                      <strong> Due Date:</strong>  <%= due_month = admin_task.created_at.strftime("%m")  %>/
+                                                           <% due_day = admin_task.created_at.strftime("%d") %>
+                                                           
+                                                           <% due_day.to_i %>
+                                                           <% x = admin_task.due_date  %>
+                                                         
+                                                           <%= due_day.to_i  + x.to_i %>/
+
+                                                           <%= due_year = admin_task.created_at.strftime("%y") %></p>
+                                      </div>
+                              </li>
+             <% end %>
+           <% end %>
+           </ul>
+          </div>
+
+
+
+
+</div>
+
+
+
+
+
