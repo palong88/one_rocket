@@ -1,7 +1,7 @@
     <div class="row">
                 <div class="col s12">
 
-                  <h3 class="center"> Getting Started </h3><br>
+                  <h3 class="center"> Milestones </h3><br>
                   <h5 class="center">My Progress</h5>
                   <h5 class="center">55%</h6>
                     <div class="progress center">
@@ -18,7 +18,7 @@
                           <h5 class="center">Before You Start</h5>
                          <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
 
-                         <% if admin_task.category == "Getting Started" && admin_task.when == "Before" %>
+                         <% if admin_task.category == "Milestones" && admin_task.when == "Before" %>
 
                               <li>
                                     <div class="collapsible-header">  <p>
@@ -54,7 +54,7 @@
                           <h5 class="center">After You Start</h5>
                          <% @admin_tasks.order( 'admin_tasks.due_date DESC' ).each do |admin_task| %>
 
-                         <% if admin_task.category == "Getting Started" && admin_task.when == "After" %>
+                         <% if admin_task.category == "Milestones" && admin_task.when == "After" %>
 
                               <li>
                                     <div class="collapsible-header">  <p>
