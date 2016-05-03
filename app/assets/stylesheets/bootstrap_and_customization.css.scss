@@ -46,6 +46,25 @@ footer.page-footer {
 
 }
 
+[type="checkbox"]+label {
+   
+    padding-top: 5px;
+    
+}
+
+[type="checkbox"]+label:before, [type="checkbox"]:not(.filled-in)+label:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    z-index: 0;
+    border: 2px solid #5a5a5a;
+    border-radius: 1px;
+    margin-top: 7px;
+    transition: .2s;
+}
 
 
 
