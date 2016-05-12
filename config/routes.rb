@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   get "employee_education" => "eeducation_tasks#index"
   get "schedule" => "schedule_tasks#index"
  
-  get "people" => "employees#index"
+  get "people" => "people#index"
 
 
 
