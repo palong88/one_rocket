@@ -1,8 +1,8 @@
     <div class="row">
                 <div class="col s12">
 
-                   <% completed = current_user.eadmin_tasks.where("completed = ?", 1).count%>
-        <% not_completed = current_user.eadmin_tasks.count%>
+                   <% completed = current_user.eadmin_tasks.where("completed = ?", 1).count.to_i%>
+        <% not_completed = current_user.eadmin_tasks.count.to_i%>
 
 
           <% total =  (completed.to_f / not_completed ) * 100 %>
@@ -12,9 +12,9 @@
 
                   <h3 class="center"> My Onboarding  </h3><br>
                   <h5 class="center">Progress</h5>
-                  <h5 class="center"><%= total.round  %></h6>
+                  <h5 class="center"><%= total %></h6>
                     <div class="progress center">
-                          <div class="determinate" style="width: <%= total.round  %>%"></div>
+                          <div class="determinate" style="width: <%= total.round %>%"></div>
                       </div>
        
                 </div>
@@ -37,7 +37,7 @@
                           <h5 class="center">Before You Start</h5>
                          <% @eadmin_tasks.order( 'eadmin_tasks.due_date DESC' ).each do |eadmin_task| %>
 
-                        
+                         <% if eadmin_task.category == "Learning" && eadmin_task.when_due == "Before" %>
 
                               <li>
 
@@ -59,7 +59,26 @@
                                           </p>
                                         </div>
 
-                                 
+                                 <% else %>
+
+                                    <div class="collapsible-header">
+                                      <p>
+                                         <strong> 
+
+                                          <%= eadmin_task.title %> 
+
+                                        </strong>
+
+                                            <%= link_to '  <i style="font-size: 2rem; color: #00e676" class=" large material-icons icon-demo secondary-content right">done</i>'.html_safe, complete_eadmin_task_path(eadmin_task), method: :patch %>
+
+                                                    
+                                            
+
+                                      </p>
+                                    </div>
+
+
+                                        <% end %>
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
