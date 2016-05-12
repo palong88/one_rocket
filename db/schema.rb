@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427234423) do
+ActiveRecord::Schema.define(version: 20160511145705) do
 
   create_table "admin_tasks", force: :cascade do |t|
     t.string   "title"
@@ -27,15 +27,23 @@ ActiveRecord::Schema.define(version: 20160427234423) do
 
   add_index "admin_tasks", ["user_id"], name: "index_admin_tasks_on_user_id"
 
-  create_table "e_education_tasks", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "media"
-    t.integer  "duedate"
-    t.integer  "complete"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "admins", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
+
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
   create_table "eadmin_tasks", force: :cascade do |t|
     t.string   "title"
@@ -50,37 +58,23 @@ ActiveRecord::Schema.define(version: 20160427234423) do
 
   add_index "eadmin_tasks", ["user_id"], name: "index_eadmin_tasks_on_user_id"
 
-  create_table "education_tasks", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "media"
-    t.date     "due_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "user_id"
+  create_table "employees", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
-  add_index "education_tasks", ["user_id"], name: "index_education_tasks_on_user_id"
-
-  create_table "eeducation_tasks", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "media"
-    t.integer  "due_date"
-    t.integer  "complete"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "employee_admin_tasks", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "media"
-    t.string   "duedate"
-    t.integer  "complete"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
+  add_index "employees", ["email"], name: "index_employees_on_email", unique: true
+  add_index "employees", ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
 
   create_table "people", force: :cascade do |t|
     t.string   "name"
@@ -89,15 +83,6 @@ ActiveRecord::Schema.define(version: 20160427234423) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "pins", force: :cascade do |t|
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "user_id"
-  end
-
-  add_index "pins", ["user_id"], name: "index_pins_on_user_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -109,18 +94,6 @@ ActiveRecord::Schema.define(version: 20160427234423) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
-
-  create_table "schedule_tasks", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "media"
-    t.integer  "due_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "user_id"
-  end
-
-  add_index "schedule_tasks", ["user_id"], name: "index_schedule_tasks_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -136,7 +109,7 @@ ActiveRecord::Schema.define(version: 20160427234423) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
-    t.datetime "start_date"
+    t.date     "start_date"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

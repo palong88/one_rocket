@@ -16,33 +16,38 @@
           
 
   <%= csrf_meta_tags %>
+
+  
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  
 </head>
 <body>
-
+  <header>
   <% if user_signed_in? %>
   <%= render 'layouts/header' %>
   <% else %>
   <%= render 'layouts/headersignin' %>
   <% end %>
+</header>
 
-   <% flash.each do |key, value| %>
-       
+  
 
-        <script>
-     
-             Materialize.toast("<%= value %>", 3000);
- 
-
-        </script>
-      <% end %>
-
-
+           <% flash.each do |key, value| %>
+                <script>
+                     Materialize.toast("<%= value %>", 3000);
+                </script>
+              <% end %>
 
     <main>
+
       <div class="container">
+        
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i>
+        </a>
+
         <%= yield %>
       </div>
           

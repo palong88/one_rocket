@@ -1,108 +1,237 @@
-<p id="notice"><%= notice %></p>
 
 
 
+ <div class="row">
+      
+      <div class="col s6" style="float: left;"> <h5> Your Onboarding Process</h5>
+           
+      </div>
 
-<h1>Your Onboarding Process</h1>
+      <div class="col s6">
 
-    <div class="row mt">
-                
-                  <div class="col-md-12">
+      <div style="float: right; margin-top:10px;"> <%= link_to 'Create a New Task', new_admin_task_path, class: "btn btn-success btn-lg" %> 
+      </div>
 
-                      <section class="task-panel tasks-widget">
-                  
-                     
-                      </section>
-                  </div><!-- /col-md-12-->
-              </div><!-- /row -->
-              <div class="row mt">
-                
-                  <div class="col-md-12">
-
-                      <section class="task-panel tasks-widget">
-                  
-                          <div class="panel-body">
-                            <div class="task-content">
-
-                                  <ul class="task-list">
+    
+    </div>
+  </div>
 
 
-                      <% @eadmin_tasks.each do |eadmin_task| %>
+  
+ 
+    <div class="col s12">
+      <ul class="tabs" id="tabs">
+        <li class="tab col s3" ><a class="active" href="#tabs-1">Learning</a></li>
+        <li class="tab col s3"><a  href="#tabs-2">Setting Up</a></li>
+        <li class="tab col s3"><a href="#tabs-3">Milestones</a></li>
+        <li class="tab col s3"><a href="#tabs-4">Personal Survey</a></li>
+      </ul>
+    </div>
+<div class="items">
+    <div id="tabs-1" class="col s6 ">
+      <h5>Before Start Date</h5>
+      <!-- First one Ruby Code-->
+      <ul class="collapsible" data-collapsible="accordion">
+
+         <% @eadmin_tasks.order( 'eadmin_tasks.due_date DESC' ).each do |eadmin_task| %>
+
+            <% if eadmin_task.category == "Learning" && eadmin_task.when == "Before" %>
+
+
+                   
+                      <li>
+                        <div class="collapsible-header ">
                         
-                                      <li>
-                                          <div class="task-checkbox">
-                                              <input type="checkbox" class="list-child" value=""  />
-                                          </div>
-                                          <div class="task-title">
-                                              <span class="task-title-sp" style="font-size:20;"><%= eadmin_task.title %></span>
+                           <p>
+                           
+                             
+                           <strong><%= eadmin_task.title %>  </strong>
 
-                                              <span class="<%= 'badge bg-theme' if eadmin_task.media == "admin" %>
+                          
 
+                        
+                            
+                             <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, admin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                            
+                               <%= link_to ' <i class="material-icons right">mode_edit</i>'.html_safe, edit_eadmin_task_path(eadmin_task) %>
 
-                                                <%= 'badge bg-warning' if eadmin_task.media == "learning" %> 
-
-
-                                                <%= 'badge bg-success' if eadmin_task.media == "Other" %>">
-
-                                                <%= eadmin_task.media %></span>
-                                               
-                                               
-                                                 <%= due_month = eadmin_task.created_at.strftime("%m")  %>/
-                                                 <% due_day = eadmin_task.created_at.strftime("%d") %>
-                                                 
-                                                 <% due_day.to_i %>
-                                                 <% x = eadmin_task.due_date  %>
-                                               
-                                                 <%= due_day.to_i  + x.to_i %>/
-
-                                                 <%= due_year = eadmin_task.created_at.strftime("%y") %>
-                                                 
+                                 </p>
+                                                      
 
 
-                                                 
-                                                 
-                                              
+                        </div>
 
-                                            
+                        <div class="collapsible-body">
 
-                                              <div class="pull-right hidden-phone">
-                                                  <%= link_to '<button class="btn btn-info btn-xs">
-                                                    <i class=" fa fa-search"></i></button>'.html_safe, eadmin_task %>
-                                                    <%= link_to '<button class="btn btn-success btn-xs">
-                                                    <i class=" fa fa-pencil"></i></button>'.html_safe, edit_eadmin_task_path(eadmin_task) %>
-                                                    <%= link_to '<button class="btn btn-primary btn-xs">
-                                                    <i class=" fa fa-trash-o"></i></button>'.html_safe, eadmin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
-                                                
-                                              </div>
-                                          </div>
-                                      </li>
+                          <p>
+                            <strong>Description:</strong><%= eadmin_task.description %><br><br>
+                           <strong>Media: </strong><a href="http://<%= eadmin_task.media %> "><%= eadmin_task.media %> </a><br><br>
+                          <strong>When: </strong><%= eadmin_task.due_date %> Day <%= eadmin_task.when %> Start.</p>
+
+
+
+
+
+
+                        </div>
+                      </li>
+                      
                     
-                      <% end %>
+              <%end%>
 
 
 
 
-     
-          
 
-                                    </ul>
-                                  </div>
-                                </div>
-                              
-                                       
+          <%end%>
+           </ul>
+           <h5>After Start Date</h5>
+
+
+            <ul class="collapsible" data-collapsible="accordion">
+
+         <% @eadmin_tasks.order( 'eadmin_tasks.due_date ASC' ).each do |eadmin_task| %>
+
+            <% if eadmin_task.category == "Learning" && eadmin_task.when == "After" %>
+
+
+                   
+                      <li>
+                        <div class="collapsible-header">
+                          <p>
+                              <strong><%= eadmin_task.title %>  </strong>
 
                          
-                      </section>
-                  </div><!-- /col-md-12-->
-              </div><!-- /row >
+                            
+                             <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, admin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                            
+                               <%= link_to ' <i class="material-icons right">mode_edit</i>'.html_safe, edit_eadmin_task_path(eadmin_task) %>
+                                                      
+
+                               </p>
+                        </div>
+
+                        <div class="collapsible-body"><p><strong>Description:</strong><%= eadmin_task.description %><br><br>
+                          <strong>Media: </strong><a href="http://<%= eadmin_task.media %> "><%= eadmin_task.media %> </a><br><br>
+                          <strong>When: </strong><%= eadmin_task.due_date %> Day <%= eadmin_task.when %> Start.</p>
+                        </div>
+                      </li>
+                      
+                    
+              <%end%>
 
 
-              
+
+
+
+          <%end%>
+           </ul>
+
+
+
+
+
+    </div><!-- END -->
+
+
+
+
+    <div id="tabs-2" class="col s12">
+          <h5>Before Start Date</h5>
+      <!-- First one Ruby Code-->
+      <ul class="collapsible" data-collapsible="accordion">
+
+         <% @eadmin_tasks.order( 'eadmin_tasks.due_date DESC' ).each do |eadmin_task| %>
+
+            <% if eadmin_task.category == "Setting Up" && eadmin_task.when == "Before" %>
+
+
+                   
+                      <li>
+                        <div class="collapsible-header ">
+                             <p>
+                     
+                              <strong><%= eadmin_task.title %>  </strong>
+
+                          
+                            
+                             <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                            
+                               <%= link_to ' <i class="material-icons right">mode_edit</i>'.html_safe, edit_eadmin_task_path(eadmin_task) %>
+                                  </p>
+                                                      
+
+                        </div>
+
+                        <div class="collapsible-body"><p><strong>Description:</strong><%= eadmin_task.description %><br><br>
+                          <strong>Media: </strong><a href="http://<%= eadmin_task.media %> "><%= eadmin_task.media %> </a><br><br>
+                          <strong>When: </strong><%= eadmin_task.due_date %> Day <%= eadmin_task.when %> Start.</p>
+                        </div>
+                      </li>
+                      
+                    
+              <%end%>
+
+
+
+
+
+          <%end%>
+           </ul>
+           <h5>After Start Date</h5>
+
+
+            <ul class="collapsible" data-collapsible="accordion">
+
+         <% @eadmin_tasks.order( 'eadmin_tasks.due_date ASC' ).each do |eadmin_task| %>
+
+            <% if eadmin_task.category == "Setting Up" && eadmin_task.when == "After" %>
+
+
+                   
+                      <li>
+                        <div class="collapsible-header">
+                             <p>
+                     
+                              <strong><%= eadmin_task.title %>  </strong>
+
+                          
+                            
+                             <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                            
+                               <%= link_to ' <i class="material-icons right">mode_edit</i>'.html_safe, edit_eadmin_task_path(eadmin_task) %>
+
+                                  </p>
+                                                      
+
+
+                        </div>
+
+                        <div class="collapsible-body"><p><strong>Description:</strong><%= eadmin_task.description %><br><br>
+                          <strong>Media: </strong><a href="http://<%= eadmin_task.media %> "><%= eadmin_task.media %> </a><br><br>
+                          <strong>When: </strong><%= eadmin_task.due_date %> Day <%= eadmin_task.when %> Start.</p>
+                        </div>
+                      </li>
+                      
+                    
+              <%end%>
+
+
+
+
+
+          <%end%>
+           </ul>
+
+
+
+
+
+    </div>
 
 
 
 
 
 
-       
 

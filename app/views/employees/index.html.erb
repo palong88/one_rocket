@@ -11,7 +11,7 @@
 
       <div class="col s6">
 
-      <div style="float: right; margin-top:10px;"> <%= link_to 'Create New Employee ', new_user_path, class: "btn btn-success btn-lg "%>
+      <div style="float: right; margin-top:10px;"> <%= link_to 'Create New Employee ', new_employee_path, class: "btn btn-success btn-lg "%>
              </div></h2>
       </div>
 
@@ -26,22 +26,22 @@
     
 
          <div class="row">
-      <% @users.each do |user| %>
+      <% @employees.each do |employee| %>
         <div class="col s12 m3">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text valign center">
               <p><%= image_tag("profile.png",  size: "110x80", class: "circle responsive-img") %></p><br>
-              <span class="card-title "><%= user.name %></span>
-              <p><b>Email: </b> <br><%= user.email %><br><b> Start Date: </b><br> <%= user.start_date.strftime('%d %b %Y')%></p>
+             
+              <p><b>Email: </b> <br><%= employee.email %><br><b> </p>
 
             </div>
             <div class="card-action">
                       <div class=" valign center">
                                                                       
                                                                         <%= link_to '<button class="btn btn-success btn-xs">
-                                                                        <i class=" fa fa-pencil"></i></button>'.html_safe, edit_user_path(user) %>
+                                                                        <i class=" fa fa-pencil"></i></button>'.html_safe, edit_employee_path(employee) %>
                                                                         <%= link_to '<button class="btn btn-primary btn-xs">
-                                                                        <i class=" fa fa-trash-o"></i></button>'.html_safe, user, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                                        <i class=" fa fa-trash-o"></i></button>'.html_safe, employee, method: :delete, data: { confirm: 'Are you sure?' } %>
                                                                     
                                                                   </div>
             </div>

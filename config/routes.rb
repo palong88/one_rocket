@@ -1,21 +1,25 @@
 Rails.application.routes.draw do
+ 
+  
   resources :people
   resources :people
-  resources :eeducation_tasks
   resources :eadmin_tasks
   resources :eadmin_tasks
   resources :eadmin_tasks
   resources :eadmin_tasks
-  resources :schedule_tasks
   resources :admin_tasks
   resources :education_tasks
   resources :education_tasks
   resources :education_tasks
-  resources :education_tasks
-  resources :pins
   devise_for :users
   scope '/admin' do
     resources :users
+  end
+
+
+  devise_for :employees
+  scope '/employee' do
+    resources :employees
   end
   
   root "admin_tasks#index"
@@ -29,13 +33,17 @@ Rails.application.routes.draw do
 
   get "show" => "users#show"
   get "about" => "pages#about"
-  get "pins" => "pins#index"
-  get "people" => "people#index"
+  
+
+
   get "education" => "education_tasks#index"
   get "admin" => "admin_tasks#index"
-  get "employee" => "eadmin_tasks#index"
+
   get "employee_education" => "eeducation_tasks#index"
   get "schedule" => "schedule_tasks#index"
+ 
+  get "people" => "employees#index"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
