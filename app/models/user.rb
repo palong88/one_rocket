@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   rolify
   belongs_to :role
   after_create :set_buildings
-
+  after_create :set_role
   
 
   private
@@ -18,7 +18,10 @@ class User < ActiveRecord::Base
 
 
 
-    
+    def set_role
+      add_role(:registered)
+    end
+
     
     
   # Include default devise modules. Others available are:
