@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
  
+
+  resources :people
+
+  resources :eadmin_tasks do
+    member do
+      patch :complete
+      patch :not_complete
+    end
+  end
+
+
   
-  resources :people
-  resources :people
-  resources :eadmin_tasks
-  resources :eadmin_tasks
-  resources :eadmin_tasks
-  resources :eadmin_tasks
   resources :admin_tasks
-  resources :education_tasks
-  resources :education_tasks
-  resources :education_tasks
+
   devise_for :users
   scope '/admin' do
     resources :users
@@ -39,7 +42,8 @@ Rails.application.routes.draw do
   get "education" => "education_tasks#index"
   get "admin" => "admin_tasks#index"
 
-  get "employeetasks" => "eadmin_tasks#index"
+  get "employee_tasks" => "eadmin_tasks#index"
+   get "showall" => "eadmin_tasks#showall"
   get "schedule" => "schedule_tasks#index"
  
   

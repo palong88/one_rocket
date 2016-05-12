@@ -1,16 +1,13 @@
 class AdminTasksController < ApplicationController
   
   before_action :set_admin_task, only: [:show, :edit, :update, :destroy]
-   before_action :authenticate_user!
-    load_and_authorize_resource
+  before_action :authenticate_user!
+  load_and_authorize_resource
 
   # GET /admin_tasks
   # GET /admin_tasks.json
   def index
     @admin_tasks = AdminTask.all
-  
-    
-    
   end
 
   # GET /admin_tasks/1
@@ -36,7 +33,7 @@ class AdminTasksController < ApplicationController
 
     respond_to do |format|
       if @admin_task.save
-        format.html { redirect_to @admin_task, notice: 'Admin task was successfully created.' }
+        format.html { redirect_to admin_tasks_url, notice: 'Admin task was successfully created.' }
         format.json { render :show, status: :created, location: @admin_task }
       else
         format.html { render :new }
@@ -50,7 +47,7 @@ class AdminTasksController < ApplicationController
   def update
     respond_to do |format|
       if @admin_task.update(admin_task_params)
-        format.html { redirect_to @admin_task, notice: 'Admin task was successfully updated.' }
+        format.html { redirect_to admin_tasks_url, notice: 'Admin task was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_task }
       else
         format.html { render :edit }

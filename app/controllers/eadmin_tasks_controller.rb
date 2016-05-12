@@ -30,6 +30,19 @@ class EadminTasksController < ApplicationController
   def edit
   end
 
+  # GET /eadmin_tasks/1/edit
+  def complete
+     @eadmin_task = EadminTask.find(params[:id])
+     @eadmin_task.update_attribute(:completed, 1)
+     redirect_to eadmin_tasks_path, notice: "Task Completed"
+  end
+
+  def not_complete
+     @eadmin_task = EadminTask.find(params[:id])
+     @eadmin_task.update_attribute(:completed, 0)
+     redirect_to eadmin_tasks_path, notice: "Task Not Completed"
+  end
+
   # POST /eadmin_tasks
   # POST /eadmin_tasks.json
   def create
@@ -38,7 +51,7 @@ class EadminTasksController < ApplicationController
 
     respond_to do |format|
       if @eadmin_task.save
-        format.html { redirect_to @eadmin_task, notice: 'EAdmin task was successfully created.' }
+        format.html { redirect_to eadmin_tasks_path, notice: 'EAdmin task was successfully created.' }
         format.json { render :show, status: :created, location: @eadmin_task }
       else
         format.html { render :new }
@@ -52,7 +65,7 @@ class EadminTasksController < ApplicationController
   def update
     respond_to do |format|
       if @eadmin_task.update(eadmin_task_params)
-        format.html { redirect_to @eadmin_task, notice: 'EAdmin task was successfully updated.' }
+        format.html { redirect_to eadmin_tasks_path, notice: 'EAdmin task was successfully updated.' }
         format.json { render :show, status: :ok, location: @eadmin_task }
       else
         format.html { render :edit }
@@ -74,11 +87,13 @@ class EadminTasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_eadmin_task
+
       @eadmin_task = EadminTask.find(params[:id])
     end
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def eadmin_task_params
-      params.require(:eadmin_task).permit(:title, :description, :media, :due_date)
+      params.require(:eadmin_task).permit(:title, :description, :media, :due_date, :category, :when_due)
     end
 end

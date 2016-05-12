@@ -1,8 +1,8 @@
     <div class="row">
                 <div class="col s12">
 
-                   <% completed = current_user.eadmin_tasks.where("completed = ?", 1).count%>
-        <% not_completed = current_user.eadmin_tasks.count%>
+                   <% completed = current_user.eadmin_tasks.where("completed = ?", 1).count.to_i%>
+        <% not_completed = current_user.eadmin_tasks.count.to_i%>
 
 
           <% total =  (completed.to_f / not_completed ) * 100 %>
@@ -12,9 +12,9 @@
 
                   <h3 class="center"> My Onboarding  </h3><br>
                   <h5 class="center">Progress</h5>
-                  <h5 class="center"><%= total.round  %></h6>
+                  <h5 class="center"><%= total %></h6>
                     <div class="progress center">
-                          <div class="determinate" style="width: <%= total.round  %>%"></div>
+                          <div class="determinate" style="width: <%= total.round %>"></div>
                       </div>
        
                 </div>
@@ -59,7 +59,10 @@
                                           </p>
                                         </div>
 
-                                 
+                                
+
+                                   
+                                        
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>

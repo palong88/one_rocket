@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512091715) do
+ActiveRecord::Schema.define(version: 20160512203330) do
 
   create_table "admin_tasks", force: :cascade do |t|
     t.string   "title"
@@ -51,9 +51,13 @@ ActiveRecord::Schema.define(version: 20160512091715) do
     t.string   "description"
     t.string   "media"
     t.string   "due_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "user_id"
+    t.string   "category"
+    t.string   "when_due"
+    t.datetime "completed_at"
+    t.integer  "completed"
   end
 
   add_index "eadmin_tasks", ["user_id"], name: "index_eadmin_tasks_on_user_id"
