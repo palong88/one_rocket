@@ -39,10 +39,10 @@ Rails.application.routes.draw do
   get "education" => "education_tasks#index"
   get "admin" => "admin_tasks#index"
 
-  get "employee_education" => "eeducation_tasks#index"
+  get "employeetasks" => "eadmin_tasks#index"
   get "schedule" => "schedule_tasks#index"
  
-  get "people" => "people#index"
+  
 
 
 

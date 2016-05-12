@@ -1,13 +1,13 @@
 class EadminTasksController < ApplicationController
   
   before_action :set_eadmin_task, only: [:show, :edit, :update, :destroy]
-   before_action :authenticate_user!
+
 
   # GET /eadmin_tasks
   # GET /eadmin_tasks.json
   def index
     
-    @users = User.all
+    @employees = Employee.all
     @eadmin_tasks = EadminTask.all
     @eadmin_tasks = current_user.eadmin_tasks
 

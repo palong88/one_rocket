@@ -29,10 +29,10 @@
       <% @employees.each do |employee| %>
         <div class="col s12 m3">
           <div class="card blue-grey darken-1">
-            <div class="card-content white-text valign center">
+               <div class="card-content white-text valign center">
               <p><%= image_tag("profile.png",  size: "110x80", class: "circle responsive-img") %></p><br>
-             
-              <p><b>Email: </b> <br><%= employee.email %><br><b> </p>
+              <span class="card-title "><%= employee.name %></span>
+              <p><b>Email: </b> <br><%= employee.email %><br><b> Start Date: </b><br> <%= employee.start_date %></p>
 
             </div>
             <div class="card-action">

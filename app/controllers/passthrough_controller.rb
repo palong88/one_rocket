@@ -5,7 +5,7 @@ class PassthroughController < ApplicationController
       when 'admin'
         root "pages#home"
       when 'regiesterd'
-        get "employee" => "eadmin_tasks#index"
+        get "employeetasks" => "eadmin_tasks#index"
 
       else
         # If you want to raise an exception or have a default root for users without roles

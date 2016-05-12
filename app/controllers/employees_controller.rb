@@ -1,5 +1,6 @@
 class EmployeesController < ApplicationController
-  
+    before_action :authenticate_user!
+    
  
     load_and_authorize_resource
   def index
@@ -47,6 +48,6 @@ class EmployeesController < ApplicationController
 
   private
     def employee_params
-      params.require(:employee).permit(:email, :password, :password_confirmation)
+      params.require(:employee).permit(:email, :password, :password_confirmation, :name, :start_date)
     end
 end
