@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :employees
   end
   
-  root "admin_tasks#index"
+ 
   get "modal" => "pages#modal"
 
   get "new" => "users#new"
@@ -46,7 +46,8 @@ Rails.application.routes.draw do
    get "showall" => "eadmin_tasks#showall"
   get "schedule" => "schedule_tasks#index"
  
-  
+  # routes.rb
+   root :to => 'passthrough#index'
 
 
 

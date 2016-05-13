@@ -1,24 +1,15 @@
-<h1>Contact US</h1>
-<p>patrick@onerocket.io</p>
- 
-<p>
-
-
-<script>
-
-
-
-if (typeof jQuery != 'undefined') {
-
-    alert("jQuery library is loaded!");
-
-}else{
-
-    alert("jQuery library is not found!");
-
-}
-
-
-
-</script>
-
+<div class="jumbotron center">
+     
+     <% if user_signed_in? %>
+     <h1>One Rocket</h1>
+          <h3>Welcome to one Rocket</h3>
+          <h5>You are already logged in.</h5>
+     <% else %>
+       <p>
+       	<h1>One Rocket</h1>
+          <h3>Welcome to one Rocket</h3>
+         <%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-lg" %>
+         
+       </p>
+  <% end %>  
+</div>

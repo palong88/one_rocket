@@ -1,3 +1,7 @@
+
+
+
+
     <div class="row">
                 <div class="col s12">
 
@@ -14,7 +18,7 @@
                   <h5 class="center">Progress</h5>
                   <h5 class="center"><%= total %></h6>
                     <div class="progress center">
-                          <div class="determinate" style="width: <%= total.round %>%"></div>
+                          <div class="determinate" style="width: <%= total.round(2) %>%"></div>
                       </div>
        
                 </div>
@@ -30,7 +34,7 @@
 
 
                    <div class="items">
-                    <div id="tabs-1">
+                    <div id="tabs-1" data-tab-index="0">
 
                       <div class="col s6 left"> 
                   <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
@@ -82,16 +86,25 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
-                                      <strong> Media: </strong><a href="http://<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  <%= due_month = eadmin_task.created_at.strftime("%m")  %>/
-                                                           <% due_day = eadmin_task.created_at.strftime("%d") %>
+                                      <strong> Media: </strong> <%= eadmin_task.media %> <br> <br>
+                                      <strong> Due Date:</strong>  
+
+
+                                        <% due_day = current_user.start_date.strftime("%d") %>
+
+
+                                           
+                                     
                                                            
                                                            <% due_day.to_i %>
+
                                                            <% x = eadmin_task.due_date  %>
                                                          
-                                                           <%= due_day.to_i  + x.to_i %>/
+                                                           <%= due_day.to_i  - x.to_i %>,
 
-                                                           <%= due_year = eadmin_task.created_at.strftime("%y") %></p>
+                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
+
+                                                           <%= due_year = 2016 %></p>
                                       </div>
                               </li>
              <% end %>
@@ -154,16 +167,26 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
-                                      <strong> Media: </strong><a href="http://<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  <%= due_month = eadmin_task.created_at.strftime("%m")  %>/
-                                                           <% due_day = eadmin_task.created_at.strftime("%d") %>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
+                                      <strong> Due Date:</strong>  
+
+
+
+                                 <% due_day = current_user.start_date.strftime("%d") %>
+
+
+                                           
+                                     
                                                            
                                                            <% due_day.to_i %>
+
                                                            <% x = eadmin_task.due_date  %>
                                                          
-                                                           <%= due_day.to_i  + x.to_i %>/
+                                                           <%= due_day.to_i  + x.to_i %>,
 
-                                                           <%= due_year = eadmin_task.created_at.strftime("%y") %></p>
+                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
+
+                                                           <%= due_year = 2016 %></p>
                                       </div>
                               </li>
              <% end %>
@@ -183,7 +206,7 @@
                     </div><!-- END -->
 
                     <div class="items">
-                    <div id="tabs-2" >
+                    <div id="tabs-2" data-tab-index="1">
 
                       <div class="col s6 left"> 
                   <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
@@ -235,16 +258,26 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
-                                      <strong> Media: </strong><a href="http://<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  <%= due_month = eadmin_task.created_at.strftime("%m")  %>/
-                                                           <% due_day = eadmin_task.created_at.strftime("%d") %>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
+                                      <strong> Due Date:</strong>  
+
+
+
+                                  <% due_day = current_user.start_date.strftime("%d") %>
+
+
+                                           
+                                     
                                                            
                                                            <% due_day.to_i %>
+
                                                            <% x = eadmin_task.due_date  %>
                                                          
-                                                           <%= due_day.to_i  + x.to_i %>/
+                                                           <%= due_day.to_i  - x.to_i %>,
 
-                                                           <%= due_year = eadmin_task.created_at.strftime("%y") %></p>
+                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
+
+                                                           <%= due_year = 2016 %></p>
                                       </div>
                               </li>
              <% end %>
@@ -307,16 +340,27 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
-                                      <strong> Media: </strong><a href="http://<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  <%= due_month = eadmin_task.created_at.strftime("%m")  %>/
-                                                           <% due_day = eadmin_task.created_at.strftime("%d") %>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
+                                      <strong> Due Date:</strong>  
+
+
+
+
+                                        <% due_day = current_user.start_date.strftime("%d") %>
+
+
+                                           
+                                     
                                                            
                                                            <% due_day.to_i %>
+
                                                            <% x = eadmin_task.due_date  %>
                                                          
-                                                           <%= due_day.to_i  + x.to_i %>/
+                                                           <%= due_day.to_i  + x.to_i %>,
 
-                                                           <%= due_year = eadmin_task.created_at.strftime("%y") %></p>
+                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
+
+                                                           <%= due_year = 2016 %></p>
                                       </div>
                               </li>
              <% end %>
@@ -337,7 +381,7 @@
                     </div><!-- END -->
 
                     <div class="items">
-                    <div id="tabs-3" >
+                    <div id="tabs-3" data-tab-index="2" >
 
                       <div class="col s6 left"> 
                   <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
@@ -389,17 +433,24 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
-                                      <strong> Media: </strong><a href="http://<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  <%= due_month = eadmin_task.created_at.strftime("%m")  %>/
-                                                           <% due_day = eadmin_task.created_at.strftime("%d") %>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
+                                      <strong> Due Date:</strong>  
+
+                                           <% due_day = current_user.start_date.strftime("%d") %>
+
+
+                                           
+                                     
                                                            
                                                            <% due_day.to_i %>
+
                                                            <% x = eadmin_task.due_date  %>
                                                          
-                                                           <%= due_day.to_i  + x.to_i %>/
+                                                           <%= due_day.to_i  - x.to_i %>,
 
-                                                           <%= due_year = eadmin_task.created_at.strftime("%y") %></p>
-                                      </div>
+                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
+
+                                                           <%= due_year = 2016 %></p>
                               </li>
              <% end %>
            <% end %>
@@ -461,16 +512,25 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
-                                      <strong> Media: </strong><a href="http://<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  <%= due_month = eadmin_task.created_at.strftime("%m")  %>/
-                                                           <% due_day = eadmin_task.created_at.strftime("%d") %>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
+                                      <strong> Due Date:</strong>  
+
+
+                                          <% due_day = current_user.start_date.strftime("%d") %>
+
+
+                                           
+                                     
                                                            
                                                            <% due_day.to_i %>
+
                                                            <% x = eadmin_task.due_date  %>
                                                          
-                                                           <%= due_day.to_i  + x.to_i %>/
+                                                           <%= due_day.to_i  + x.to_i %>,
 
-                                                           <%= due_year = eadmin_task.created_at.strftime("%y") %></p>
+                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
+
+                                                           <%= due_year = 2016 %></p>
                                       </div>
                               </li>
              <% end %>
@@ -488,7 +548,7 @@
                     </div><!-- END -->
 
                     <div class="items">
-                    <div id="tabs-4" >
+                    <div id="tabs-4" data-tab-index="3" >
 
                       <div class="col s6 left"> 
                   <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
@@ -540,16 +600,23 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
-                                      <strong> Media: </strong><a href="http://<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  <%= due_month = eadmin_task.created_at.strftime("%m")  %>/
-                                                           <% due_day = eadmin_task.created_at.strftime("%d") %>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
+                                      <strong> Due Date:</strong>  
+     <% due_day = current_user.start_date.strftime("%d") %>
+
+
+                                           
+                                     
                                                            
                                                            <% due_day.to_i %>
+
                                                            <% x = eadmin_task.due_date  %>
                                                          
-                                                           <%= due_day.to_i  + x.to_i %>/
+                                                           <%= due_day.to_i  - x.to_i %>,
 
-                                                           <%= due_year = eadmin_task.created_at.strftime("%y") %></p>
+                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
+
+                                                           <%= due_year = 2016 %></p>
                                       </div>
                               </li>
              <% end %>
@@ -612,16 +679,24 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
-                                      <strong> Media: </strong><a href="http://<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  <%= due_month = eadmin_task.created_at.strftime("%m")  %>/
-                                                           <% due_day = eadmin_task.created_at.strftime("%d") %>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
+                                      <strong> Due Date:</strong>  
+
+                                        <% due_day = current_user.start_date.strftime("%d") %>
+
+
+                                           
+                                     
                                                            
                                                            <% due_day.to_i %>
+
                                                            <% x = eadmin_task.due_date  %>
                                                          
-                                                           <%= due_day.to_i  + x.to_i %>/
+                                                           <%= due_day.to_i  + x.to_i %>,
 
-                                                           <%= due_year = eadmin_task.created_at.strftime("%y") %></p>
+                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
+
+                                                           <%= due_year = 2016 %></p>
                                       </div>
                               </li>
              <% end %>
@@ -637,8 +712,5 @@
 
                       
                   </div><!-- END -->
-
-
-
 
 

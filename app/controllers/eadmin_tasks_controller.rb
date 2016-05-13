@@ -6,6 +6,8 @@ class EadminTasksController < ApplicationController
   # GET /eadmin_tasks
   # GET /eadmin_tasks.json
   def index
+    @users = User.all
+   
     
     @employees = Employee.all
     @eadmin_tasks = EadminTask.all
@@ -13,6 +15,11 @@ class EadminTasksController < ApplicationController
 
 
     
+  end
+
+
+  def list 
+      @users = User.all
   end
 
   # GET /admin_tasks/1

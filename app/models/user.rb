@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   belongs_to :role
   after_create :set_buildings
   after_create :set_role
+
+  
   
 
   private
@@ -27,7 +29,8 @@ class User < ActiveRecord::Base
          my_role = Role.find_by_name(role)
          where(:role => my_role)
       end
-    
+
+
     
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
