@@ -1,7 +1,5 @@
 
 
-
-
     <div class="row">
                 <div class="col s12">
 
@@ -87,24 +85,7 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong> <%= eadmin_task.media %> <br> <br>
-                                      <strong> Due Date:</strong>  
-
-
-                                        <% due_day2 = current_user.start_date.strftime("%d") %>
-
-
-                                           
-                                     
-                                                           
-                                                           <% due_day2.to_i %>
-
-                                                           <% x2 = eadmin_task.due_date  %>
-                                                         
-                                                           <%= due_day2.to_i  - x2.to_i %>,
-
-                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
-
-                                                           <%= due_year = 2016 %></p>
+                                      <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days before start date</strong> </p>
                                       </div>
                               </li>
              <% end %>
@@ -168,25 +149,7 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  
-
-
-
-                                 <% due_day3 = current_user.start_date.strftime("%d") %>
-
-
-                                           
-                                     
-                                                           
-                                                           <% due_day3.to_i %>
-
-                                                           <% x3 = eadmin_task.due_date  %>
-                                                         
-                                                           <%= due_day3.to_i  + x3.to_i %>,
-
-                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
-
-                                                           <%= due_year = 2016 %></p>
+                                    <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days after start date</strong> </p>
                                       </div>
                               </li>
              <% end %>
@@ -259,25 +222,7 @@
 
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  
-
-
-
-                                  <% due_day4 = current_user.start_date.strftime("%d") %>
-
-
-                                           
-                                     
-                                                           
-                                                           <% due_day4.to_i %>
-
-                                                           <% x4 = eadmin_task.due_date  %>
-                                                         
-                                                           <%= due_day4.to_i  - x4.to_i %>,
-
-                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
-
-                                                           <%= due_year = 2016 %></p>
+                                      <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days before start date</strong> </p>
                                       </div>
                               </li>
              <% end %>
@@ -341,26 +286,7 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  
-
-
-
-
-                                        <% due_day5 = current_user.start_date.strftime("%d") %>
-
-
-                                           
-                                     
-                                                           
-                                                           <% due_day5.to_i %>
-
-                                                           <% x5 = eadmin_task.due_date  %>
-                                                         
-                                                           <%= due_day5.to_i  + x5.to_i %>,
-
-                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
-
-                                                           <%= due_year = 2016 %></p>
+                                      <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days after start date</strong> </p>
                                       </div>
                               </li>
              <% end %>
@@ -434,23 +360,7 @@
 
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  
-
-                                           <% due_day6 = current_user.start_date.strftime("%d") %>
-
-
-                                           
-                                     
-                                                           
-                                                           <% due_day6.to_i %>
-
-                                                           <% x6 = eadmin_task.due_date  %>
-                                                         
-                                                           <%= due_day6.to_i  - x6.to_i %>,
-
-                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
-
-                                                           <%= due_year = 2016 %></p>
+                                     <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days before start date</strong> </p>
                               </li>
              <% end %>
            <% end %>
@@ -513,24 +423,7 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  
-
-
-                                          <% due_day7 = current_user.start_date.strftime("%d") %>
-
-
-                                           
-                                     
-                                                           
-                                                           <% due_day7.to_i %>
-
-                                                           <% x7 = eadmin_task.due_date  %>
-                                                         
-                                                           <%= due_day7.to_i  + x7.to_i %>,
-
-                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
-
-                                                           <%= due_year = 2016 %></p>
+                                      <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days after start date</strong> </p>
                                       </div>
                               </li>
              <% end %>
@@ -601,22 +494,7 @@
 
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  
-     <% due_day8 = current_user.start_date.strftime("%d") %>
-
-
-                                           
-                                     
-                                                           
-                                                           <% due_day8.to_i %>
-
-                                                           <% x8 = eadmin_task.due_date  %>
-                                                         
-                                                           <%= due_day8.to_i  - x8.to_i %>,
-
-                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
-
-                                                           <%= due_year = 2016 %></p>
+                                      <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days before start date</strong> </p>
                                       </div>
                               </li>
              <% end %>
@@ -680,23 +558,8 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:</strong>  
+                                      <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days after start date</strong>  </p>
 
-                                        <% due_day9 = current_user.start_date.strftime("%d") %>
-
-
-                                           
-                                     
-                                                           
-                                                           <% due_day9.to_i %>
-
-                                                           <% x9 = eadmin_task.due_date  %>
-                                                         
-                                                           <%= due_day9.to_i  + x9.to_i %>,
-
-                                                           <%= due_month = current_user.start_date.strftime("%b")  %>
-
-                                                           <%= due_year = 2016 %></p>
                                       </div>
                               </li>
              <% end %>
