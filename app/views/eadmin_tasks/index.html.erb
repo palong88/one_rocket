@@ -475,6 +475,7 @@
                                       eadminwhen: <%=  eadmin_task.when_due%>
                                       when_due:<= when_due%> 
                                        Currentuser: <%= current_user.start_date %> 
+                                       <% d = current_user.start_date %> 
                                        Before:<%= due_date8 =(d+when_due).to_s %>
                                       output: <%= Date.parse(due_date8).strftime("%e, %B, %Y")%>
                                    
