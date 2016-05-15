@@ -119,7 +119,7 @@
                   
                  <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
                           <h5 class="center">After You Start</h5>
-                         <% @eadmin_tasks.order( 'eadmin_tasks.due_date DESC' ).each do |eadmin_task| %>
+                         <% @eadmin_tasks.order( 'eadmin_tasks.due_date ASC' ).each do |eadmin_task| %>
 
                          <% if eadmin_task.category == "Learning" && eadmin_task.when_due == "After" %>
 
@@ -272,7 +272,7 @@
                   
                  <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
                           <h5 class="center">After You Start</h5>
-                         <% @eadmin_tasks.order( 'eadmin_tasks.due_date DESC' ).each do |eadmin_task| %>
+                         <% @eadmin_tasks.order( 'eadmin_tasks.due_date ASC' ).each do |eadmin_task| %>
 
                          <% if eadmin_task.category == "Setting Up" && eadmin_task.when_due == "After" %>
 
@@ -421,7 +421,7 @@
                   
                  <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
                           <h5 class="center">After You Start</h5>
-                         <% @eadmin_tasks.order( 'eadmin_tasks.due_date DESC' ).each do |eadmin_task| %>
+                         <% @eadmin_tasks.order( 'eadmin_tasks.due_date ASC' ).each do |eadmin_task| %>
 
                          <% if eadmin_task.category == "Milestones" && eadmin_task.when_due == "After" %>
 
@@ -516,7 +516,7 @@
                   
                  <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
                           <h5 class="center">After You Start</h5>
-                         <% @eadmin_tasks.order( 'eadmin_tasks.due_date DESC' ).each do |eadmin_task| %>
+                         <% @eadmin_tasks.order( 'eadmin_tasks.due_date ASC' ).each do |eadmin_task| %>
 
                          <% if eadmin_task.category == "Personal Survey" && eadmin_task.when_due == "After" %>
 
