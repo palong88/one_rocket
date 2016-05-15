@@ -14,9 +14,9 @@
 
                   <h3 class="center"> My Onboarding  </h3><br>
                   <h5 class="center">Progress</h5>
-                  <h5 class="center"><%= total %></h6>
+                  <h5 class="center"><%= total.round(0) %>%</h6>
                     <div class="progress center">
-                          <div class="determinate" style="width: <%= total.round(2) %>%"></div>
+                          <div class="determinate" style="width: <%= total.round(0) %>%"></div>
                       </div>
        
                 </div>
@@ -84,9 +84,19 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
-                                      <strong> Media: </strong> <%= eadmin_task.media %> <br> <br>
-                                      <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days before start date</strong> </p>
-                                      </div>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <strong> Due Date:</strong> 
+                                      <% when_due = eadmin_task.due_date.to_i %>
+                                       <% d = current_user.start_date %> 
+                                       <% due_date =(d-when_due).to_s %>
+                                      <%= Date.parse(due_date).strftime("%e, %B, %Y")%>
+                                     </p>
+      
+
+
+
+
+                                </div>
                               </li>
              <% end %>
            <% end %>
@@ -149,7 +159,16 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                    <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days after start date</strong> </p>
+                                    <strong> Due Date:</strong> 
+                                      <% when_due = eadmin_task.due_date.to_i %>
+                                       <% d = current_user.start_date %> 
+                                       <% due_date =(d+when_due).to_s %>
+                                      <%= Date.parse(due_date).strftime("%e, %B, %Y")%>
+                                     </p>
+
+
+
+
                                       </div>
                               </li>
              <% end %>
@@ -222,7 +241,12 @@
 
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days before start date</strong> </p>
+                                      <strong> Due Date:</strong> 
+                                      <% when_due = eadmin_task.due_date.to_i %>
+                                       <% d = current_user.start_date %> 
+                                       <% due_date =(d-when_due).to_s %>
+                                      <%= Date.parse(due_date).strftime("%e, %B, %Y")%>
+                                     </p>
                                       </div>
                               </li>
              <% end %>
@@ -286,7 +310,12 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days after start date</strong> </p>
+                                      <strong> Due Date:</strong> 
+                                     <% when_due = eadmin_task.due_date.to_i %>
+                                       <% d = current_user.start_date %> 
+                                       <% due_date =(d+when_due).to_s %>
+                                      <%= Date.parse(due_date).strftime("%e, %B, %Y")%>
+                                     </p>
                                       </div>
                               </li>
              <% end %>
@@ -360,7 +389,12 @@
 
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                     <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days before start date</strong> </p>
+                                     <strong> Due Date:</strong> 
+                                     <% when_due = eadmin_task.due_date.to_i %>
+                                       <% d = current_user.start_date %> 
+                                       <% due_date =(d-when_due).to_s %>
+                                      <%= Date.parse(due_date).strftime("%e, %B, %Y")%>
+                                     </p>
                               </li>
              <% end %>
            <% end %>
@@ -423,8 +457,12 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days after start date</strong> </p>
-                                      </div>
+                                      <strong> Due Date:</strong> 
+                                      <% when_due = eadmin_task.due_date.to_i %>
+                                       <% d = current_user.start_date %> 
+                                       <% due_date =(d+when_due).to_s %>
+                                      <%= Date.parse(due_date).strftime("%e, %B, %Y")%>
+                                     </p>
                               </li>
              <% end %>
            <% end %>
@@ -444,62 +482,20 @@
                     <div id="tabs-4" data-tab-index="3" >
 
                       <div class="col s6 left"> 
-                  <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
+                 
                           <h5 class="center">Before You Start</h5>
                          <% @eadmin_tasks.order( 'eadmin_tasks.due_date DESC' ).each do |eadmin_task| %>
 
                          <% if eadmin_task.category == "Personal Survey" && eadmin_task.when_due == "Before" %>
-
-                              <li>
-
-                                <% if eadmin_task.completed? %> 
+<!-- Change the width and height values to suit you best -->
+<div class="typeform-widget" data-url="https://onerocket.typeform.com/to/lUJyP5" data-text="Pundit Arena - Personal Details" style="width:100%;height:500px;"></div>
+<script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'widget.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()</script>
+<div style="font-family: Sans-Serif;font-size: 12px;color: #999;opacity: 0.5; padding-top: 5px;">Powered by <a href="https://www.typeform.com/examples/forms/?utm_campaign=lUJyP5&amp;utm_source=typeform.com-2922074-Basic&amp;utm_medium=typeform&amp;utm_content=typeform-embedded-poweredbytypeform&amp;utm_term=EN" style="color: #999" target="_blank">Typeform</a></div>
                                                   
 
-                                        <div class="collapsible-header">
-                                          <p style="opacity: 0.4;">
-                                                <strike> 
-
-                                                  <%= eadmin_task.title %> 
-
-                                                </strike>
-
-                                          
-
-                                              <%= link_to '  <i style="color: red"class="material-icons large icon-demo ">remove_circle</i>'.html_safe, not_complete_eadmin_task_path(eadmin_task), method: :patch %>
-
-                                          </p>
-                                        </div>
-
-                                 <% else %>
-
-                                    <div class="collapsible-header">
-                                      <p>
-                                         <strong> 
-
-                                          <%= eadmin_task.title %> 
-
-                                        </strong>
-
-                                            <%= link_to '  <i style="font-size: 2rem; color: #00e676" class=" large material-icons icon-demo secondary-content right">done</i>'.html_safe, complete_eadmin_task_path(eadmin_task), method: :patch %>
-
-                                                    
-                                            
-
-                                      </p>
-                                    </div>
-
-
-                                        <% end %>
-                                    <div class="collapsible-body">
-
-                                      <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
-                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days before start date</strong> </p>
-                                      </div>
-                              </li>
              <% end %>
            <% end %>
-           </ul>
+       
 
           </div>
 
@@ -558,7 +554,12 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>"><%= eadmin_task.media %></a> <br> <br>
-                                      <strong> Due Date:  <%= x9 = eadmin_task.due_date %> days after start date</strong>  </p>
+                                      <strong> Due Date:</strong> 
+                                      <% when_due = eadmin_task.due_date.to_i %>
+                                       <% d = current_user.start_date %> 
+                                       <% due_date =(d+when_due).to_s %>
+                                      <%= Date.parse(due_date).strftime("%e, %B, %Y")%>
+                                     </p>
 
                                       </div>
                               </li>
