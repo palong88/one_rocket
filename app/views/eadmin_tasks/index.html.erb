@@ -91,7 +91,15 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
+
+                                        
+                                        
+   
+                                                    
+                                           <% if !eadmin_task.media.blank? %>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <% end %>
+
                                       <strong> Due Date:</strong> 
                                       <% when_due = eadmin_task.due_date.to_i %>
                                        <% d = current_user.start_date %> 
@@ -166,7 +174,9 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
+                                      <% if !eadmin_task.media.blank? %>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <% end %>
                                     <strong> Due Date:</strong> 
                                       <% when_due = eadmin_task.due_date.to_i %>
                                        <% d = current_user.start_date %> 
@@ -249,7 +259,9 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
+                                     <% if !eadmin_task.media.blank? %>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <% end %>
                                       <strong> Due Date:</strong> 
                                        <% when_due = eadmin_task.due_date.to_i %>
                                        <% d = current_user.start_date %> 
@@ -319,7 +331,9 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
+                                     <% if !eadmin_task.media.blank? %>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <% end %>
                                       <strong> Due Date:</strong> 
                                      <% when_due = eadmin_task.due_date.to_i %>
                                        <% d = current_user.start_date %> 
@@ -398,8 +412,11 @@
                                         <% end %>
                                     <div class="collapsible-body">
 
-                                      <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
+                                      <p><strong> Description: </strong><%= eadmin_task.description %><br><br>d
+                                      
+                                        <% if !eadmin_task.media.blank? %>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <% end %>
                                      <strong> Due Date:</strong> 
                                      <% when_due = eadmin_task.due_date.to_i %>
                                        <% d = current_user.start_date %> 
@@ -467,7 +484,9 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
+                                        <% if !eadmin_task.media.blank? %>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <% end %>
                                       <strong> Due Date:</strong> 
                                          <% when_due = eadmin_task.due_date.to_i %>
                                        <% d = current_user.start_date %> 
@@ -561,7 +580,9 @@
                                     <div class="collapsible-body">
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
+                                      <% if !eadmin_task.media.blank? %>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <% end %>
                                       <strong> Due Date:</strong> 
                                      <% when_due = eadmin_task.due_date.to_i %>
                                        <% d = current_user.start_date %> 
