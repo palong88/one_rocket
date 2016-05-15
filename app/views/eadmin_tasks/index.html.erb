@@ -472,7 +472,7 @@
                                       <strong> Due Date:</strong> 
                                       <% when_due = eadmin_task.due_date.to_i %>
                                       due_date: <%=  eadmin_task.due_date%>
-                                      eadminwhen: <%=  eadmin_task.when_date%>
+                                      eadminwhen: <%=  eadmin_task.when_due%>
                                       when_due:<= when_due%> 
                                        Currentuser: <%= current_user.start_date %> 
                                        Before:<%= due_date8 =(d+when_due).to_s %>
