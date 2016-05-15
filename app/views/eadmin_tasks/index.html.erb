@@ -472,8 +472,8 @@
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
                                       <strong> Due Date:</strong> 
-                                        When Due:<% when_due = eadmin_task.due_date.to_i %>
-                                       Start:<% d = current_user.start_date %> 
+                                        When Due:<%= when_due = eadmin_task.due_date.to_i %>
+                                       Start:<%= d = current_user.start_date %> 
                                        To Date:<%= d.to_date %>
                                        Calculation:<%= due_date9 = (d + when_due).to_s %>
                                       Output:<%= Date.parse(due_date9).strftime("%e, %B, %Y")%>
