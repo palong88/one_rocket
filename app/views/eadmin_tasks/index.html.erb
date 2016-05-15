@@ -1,6 +1,3 @@
-<%=  d = Date.today %>
-<%=  d.to_s %>
-<%=  d = Date.today %>
 
     <div class="row">
                 <div class="col s12">
@@ -254,9 +251,9 @@
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
                                       <strong> Due Date:</strong> 
-                                      <%= when_due = eadmin_task.due_date.to_i %>
-                                       <%= d = current_user.start_date %> 
-                                       <%= due_date5 =(d-when_due).to_s %>
+                                       <% when_due = eadmin_task.due_date.to_i %>
+                                       <% d = current_user.start_date %> 
+                                       <% due_date5 =(d-when_due).to_s %>
                                       <%= Date.parse(due_date5).strftime("%e, %B, %Y")%>
                                      </p>
                                       </div>
@@ -404,9 +401,9 @@
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
                                      <strong> Due Date:</strong> 
-                                     <%= when_due = eadmin_task.due_date.to_i %>
-                                       <%= d = current_user.start_date %> 
-                                       <%= due_date7 =(d-when_due).to_s %>
+                                     <% when_due = eadmin_task.due_date.to_i %>
+                                       <% d = current_user.start_date %> 
+                                       <% due_date7 =(d-when_due).to_s %>
                                       <%= Date.parse(due_date7).strftime("%e, %B, %Y")%>
                                      </p>
                               </li>
@@ -472,12 +469,10 @@
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
                                       <strong> Due Date:</strong> 
-                                        When Due:<%= when_due = eadmin_task.due_date.to_i %>
-                                       Start:<%= d = current_user.start_date %> 
-                                       To Date:<%= d.to_date %>
-                                       Calculation:<%= due_date9 = (d + when_due).to_s %>
-                                      Output:<%= Date.parse(due_date9).strftime("%e, %B, %Y")%>
-                                   
+                                         <% when_due = eadmin_task.due_date.to_i %>
+                                       <% d = current_user.start_date %> 
+                                       <% due_date8 =(d+when_due).to_s %>
+                                      <%= Date.parse(due_date8).strftime("%e, %B, %Y")%>
                                      </p>
                               </li>
              <% end %>
@@ -568,11 +563,10 @@
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
                                       <strong> Due Date:</strong> 
-                                      When Due:<% when_due = eadmin_task.due_date.to_i %>
-                                       Start:<% d = current_user.start_date %> 
-                                       To Date:<%= d.to_date %>
-                                       Calculation:<% due_date9 =(d+when_due).to_s %>
-                                      Output:<%= Date.parse(due_date9).strftime("%e, %B, %Y")%>
+                                     <% when_due = eadmin_task.due_date.to_i %>
+                                       <% d = current_user.start_date %> 
+                                       <% due_date9 =(d+when_due).to_s %>
+                                      <%= Date.parse(due_date9).strftime("%e, %B, %Y")%>
                                      </p>
 
                                       </div>
