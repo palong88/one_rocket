@@ -471,10 +471,12 @@
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
                                       <strong> Due Date:</strong> 
                                       <% when_due = eadmin_task.due_date.to_i %>
-                                       <% d = current_user.start_date %> 
-                                       <% due_date8 =(d+when_due).to_s %>
-                                      <%= Date.parse(due_date8).strftime("%e, %B, %Y")%>
-                                      test
+                                      due_date: <%=  eadmin_task.due_date%>
+                                      when_due:<= when_due%> 
+                                       Currentuser: <%= current_user.start_date %> 
+                                       Before:<% due_date8 =(d+when_due).to_s %>
+                                      output: <%= Date.parse(due_date8).strftime("%e, %B, %Y")%>
+                                   
                                      </p>
                               </li>
              <% end %>
