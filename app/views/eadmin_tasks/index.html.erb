@@ -97,7 +97,7 @@
    
                                                     
                                            <% if !eadmin_task.media.blank? %>
-                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(65) %> </a> <br> <br>
                                       <% end %>
 
                                       <strong> Due Date:</strong> 
@@ -175,7 +175,7 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <% if !eadmin_task.media.blank? %>
-                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(65) %> </a> <br> <br>
                                       <% end %>
                                     <strong> Due Date:</strong> 
                                       <% when_due = eadmin_task.due_date.to_i %>
@@ -260,7 +260,7 @@
 
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>
                                      <% if !eadmin_task.media.blank? %>
-                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(65) %> </a> <br> <br>
                                       <% end %>
                                       <strong> Due Date:</strong> 
                                        <% when_due = eadmin_task.due_date.to_i %>
@@ -332,7 +332,7 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                      <% if !eadmin_task.media.blank? %>
-                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(65) %> </a> <br> <br>
                                       <% end %>
                                       <strong> Due Date:</strong> 
                                      <% when_due = eadmin_task.due_date.to_i %>
@@ -415,7 +415,7 @@
                                       <p><strong> Description: </strong><%= eadmin_task.description %><br><br>d
                                       
                                         <% if !eadmin_task.media.blank? %>
-                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(65) %> </a> <br> <br>
                                       <% end %>
                                      <strong> Due Date:</strong> 
                                      <% when_due = eadmin_task.due_date.to_i %>
@@ -485,7 +485,7 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                         <% if !eadmin_task.media.blank? %>
-                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(65) %> </a> <br> <br>
                                       <% end %>
                                       <strong> Due Date:</strong> 
                                          <% when_due = eadmin_task.due_date.to_i %>
@@ -553,7 +553,7 @@
                                      </p>
 
                                       </div>
-                                      
+
                               </li>
 </ul>
                          
@@ -619,7 +619,7 @@
 
                                       <p><strong> Descrption: </strong><%= eadmin_task.description %><br><br>
                                       <% if !eadmin_task.media.blank? %>
-                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media %> </a> <br> <br>
+                                      <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(65) %> </a> <br> <br>
                                       <% end %>
                                       <strong> Due Date:</strong> 
                                      <% when_due = eadmin_task.due_date.to_i %>
