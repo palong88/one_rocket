@@ -33,12 +33,20 @@
           <div class="card blue-grey darken-1">
             <div class="card-content white-text valign center">
               <p><%= image_tag("profile.png",  size: "110x80", class: "circle responsive-img") %></p><br>
-              <span class="card-title "><%= user.name %></span>
-              <p><b>Email: </b> <br><%= user.email %><br><b> Start Date: </b><br> <%= user.start_date%></p>
+              <span class="card-title "><%= link_to user.name, user_eadmin_tasks_path(:id => user.id) %></span>
+              <p><b>Email: </b> <br><%= user.email %><br><b> Start Date: </b><br> <%= user.start_date%>
+                <%= user.id %>
+              </p>
 
             </div>
             <div class="card-action">
                       <div class=" valign center">
+                       
+                        
+                   
+                        
+
+                        
                                                                       
                                                                         <%= link_to '<button class="btn btn-success btn-xs">
                                                                         <i class=" fa fa-pencil"></i></button>'.html_safe, edit_user_path(user) %>

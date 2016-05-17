@@ -2,23 +2,19 @@
     <div class="row">
                 <div class="col s12">
 
-                   <% completed = current_user.eadmin_tasks.where("completed = ?", 1).count.to_i%>
-        <% not_completed = current_user.eadmin_tasks.count.to_i%>
-
-
-          <% total =  (completed.to_f / not_completed ) * 100 %>
 
         
+<% userid = params[:id] %>
+
+                  <h3 class="center"> NAMEPLACE Onboarding  </h3> <br>
+                 
+                       <div > 
+
+<%= link_to "Create a New Task", new_eadmin_task_path(:user_id => userid), class: "btn btn-success btn-lg", style: "float: right; margin-top:10px;" %>
 
 
-                  <h3 class="center"> My Onboarding  </h3><br>
-                  <h4 class="center">Hi, <%=current_user.name %></h4>
-
-                  <h5 class="center">Progress</h5>
-                  <h5 class="center"><%= total.round(0) %>%</h6>
-                    <div class="progress center">
-                          <div class="determinate" style="width: <%= total.round(0) %>%"></div>
-                      </div>
+                        
+      </div>
        
                 </div>
                <div class="col s12">
@@ -56,14 +52,14 @@
 
                                                   <%= eadmin_task.title %> 
 
+
                                                 </strike>
 
                                           
 
                                               
-                                            <%= link_to '  <i style="font-size: 2rem; color: #00e676" class=" large material-icons icon-demo secondary-content right">check_box
-</i>'.html_safe, not_complete_eadmin_task_path(eadmin_task), method: :patch %>
-
+                                           <i style="font-size: 2rem; color: #00e676" class=" large material-icons icon-demo secondary-content right">check_box
+</i>
 
                                           </p>
                                         </div>
@@ -74,13 +70,14 @@
                                       <p>
                                          <strong> 
 
-                                          <%= eadmin_task.title %> 
+                                          <%= eadmin_task.title.first(37) %> 
+                                          
 
                                         </strong>
 
-                                            <%= link_to '  <i style="font-size: 2rem; color: #757575" class=" large material-icons icon-demo secondary-content right">check_box_outline_blank
+                                             <i style="font-size: 2rem; color: #757575" class=" large material-icons icon-demo secondary-content right">check_box_outline_blank
 
-</i>'.html_safe, complete_eadmin_task_path(eadmin_task), method: :patch %>
+</i>
 
                                                     
                                             
@@ -107,8 +104,13 @@
                                        <% d = current_user.start_date %> 
                                        <% due_date3 = (d - when_due).to_s %>
                                       <%= Date.parse(due_date3).strftime("%e, %B, %Y")%>
+
+                                  
+                                      <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
+                                      
+                                                                            
                                      
-                                   
+                                     
                                      </p>
       
 
@@ -186,6 +188,7 @@
                                        <% d = current_user.start_date %> 
                                        <% due_date4 =(d+when_due).to_s %>
                                       <%= Date.parse(due_date4).strftime("%e, %B, %Y")%>
+                                      <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
                                      </p>
 
 
@@ -252,6 +255,7 @@
 
                                             <%= link_to '  <i style="font-size: 2rem; color: #757575" class=" large material-icons icon-demo secondary-content right">check_box_outline_blank </i>'.html_safe, complete_eadmin_task_path(eadmin_task), method: :patch %>
 
+
                                                     
                                             
 
@@ -271,6 +275,7 @@
                                        <% d = current_user.start_date %> 
                                        <% due_date5 =(d-when_due).to_s %>
                                       <%= Date.parse(due_date5).strftime("%e, %B, %Y")%>
+                                      <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
                                      </p>
                                       </div>
                               </li>
@@ -343,6 +348,7 @@
                                        <% d = current_user.start_date %> 
                                        <% due_date6 =(d+when_due).to_s %>
                                       <%= Date.parse(due_date6).strftime("%e, %B, %Y")%>
+                                         <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
                                      </p>
                                       </div>
                               </li>
@@ -426,6 +432,7 @@
                                        <% d = current_user.start_date %> 
                                        <% due_date7 =(d-when_due).to_s %>
                                       <%= Date.parse(due_date7).strftime("%e, %B, %Y")%>
+                                         <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
                                      </p>
                               </li>
              <% end %>
@@ -496,6 +503,7 @@
                                        <% d = current_user.start_date %> 
                                        <% due_date8 =(d+when_due).to_s %>
                                       <%= Date.parse(due_date8).strftime("%e, %B, %Y")%>
+                                         <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
                                      </p>
                               </li>
              <% end %>
@@ -630,6 +638,7 @@
                                        <% d = current_user.start_date %> 
                                        <% due_date9 =(d+when_due).to_s %>
                                       <%= Date.parse(due_date9).strftime("%e, %B, %Y")%>
+                                         <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
 
                                      </p>
 

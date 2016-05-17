@@ -7,16 +7,23 @@ Rails.application.routes.draw do
     member do
       patch :complete
       patch :not_complete
+      patch :create
     end
   end
 
+get 'users/:id/eadmin_tasks' => 'users#eadmin_tasks', :as => :user_eadmin_tasks
 
   
   resources :admin_tasks
 
   devise_for :users
+
   scope '/admin' do
-    resources :users
+    resources :users do
+    end
+
+     
+
   end
 
 
@@ -25,6 +32,8 @@ Rails.application.routes.draw do
     resources :employees
   end
   
+
+
  
   get "modal" => "pages#modal"
 
@@ -45,6 +54,7 @@ Rails.application.routes.draw do
   get "employee_tasks" => "eadmin_tasks#index"
    get "showall" => "eadmin_tasks#showall"
   get "schedule" => "schedule_tasks#index"
+
  
   # routes.rb
    root :to => 'passthrough#index'

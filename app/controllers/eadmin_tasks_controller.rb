@@ -1,3 +1,4 @@
+
 class EadminTasksController < ApplicationController
   
   before_action :set_eadmin_task, only: [:show, :edit, :update, :destroy]
@@ -6,7 +7,7 @@ class EadminTasksController < ApplicationController
   # GET /eadmin_tasks
   # GET /eadmin_tasks.json
   def index
-   @users = User.all
+    @users = User.all
    
     
     @employees = Employee.all
@@ -29,8 +30,7 @@ class EadminTasksController < ApplicationController
 
   # GET /admin_tasks/new
   def new
-  
-    @eadmin_task = current_user.eadmin_tasks.build
+    @eadmin_task = EadminTask.new
   end
 
   # GET /eadmin_tasks/1/edit
@@ -53,12 +53,13 @@ class EadminTasksController < ApplicationController
   # POST /eadmin_tasks
   # POST /eadmin_tasks.json
   def create
-    @eadmin_task = current_user.eadmin_tasks.build(eadmin_task_params)
+ 
+    @eadmin_task = User.find(params[:eadmin_task][:user_id]).eadmin_tasks.build(eadmin_task_params)
 
 
     respond_to do |format|
       if @eadmin_task.save
-        format.html { redirect_to eadmin_tasks_path, notice: 'EAdmin task was successfully created.' }
+        format.html { redirect_to user_eadmin_tasks_path(:id => params[:eadmin_task][:user_id]), notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @eadmin_task }
       else
         format.html { render :new }
@@ -72,7 +73,7 @@ class EadminTasksController < ApplicationController
   def update
     respond_to do |format|
       if @eadmin_task.update(eadmin_task_params)
-        format.html { redirect_to eadmin_tasks_path, notice: 'EAdmin task was successfully updated.' }
+        format.html { redirect_to user_eadmin_tasks_path(:id => params[:eadmin_task][:user_id]), notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @eadmin_task }
       else
         format.html { render :edit }
@@ -86,7 +87,7 @@ class EadminTasksController < ApplicationController
   def destroy
     @eadmin_task.destroy
     respond_to do |format|
-      format.html { redirect_to eadmin_tasks_url, notice: 'eAdmin task was successfully destroyed.' }
+      format.html { redirect_to user_eadmin_tasks_path(:id => params[:user_id]), notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -94,13 +95,16 @@ class EadminTasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_eadmin_task
-
       @eadmin_task = EadminTask.find(params[:id])
     end
 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def eadmin_task_params
-      params.require(:eadmin_task).permit(:title, :description, :media, :due_date, :category, :when_due)
+      params.require(:eadmin_task).permit(:user_id, :title, :description, :media, :due_date, :category, :when_due)
     end
+
+
+
+
 end
