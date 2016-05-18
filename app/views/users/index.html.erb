@@ -41,19 +41,20 @@
             </div>
             <div class="card-action">
                       <div class=" valign center">
-                       
-                        
-                   
-                        
+                        <div class="row">
+                           <div class="col s4">
+                             <%= link_to '<button class="btn btn-success btn-xs"> <i class=" fa fa-tasks"></i></button>'.html_safe, user_eadmin_tasks_path(:id => user.id) %>
+                             </div>
+                            <div class="col s4">
+                             <%= link_to '<button class="btn btn-success btn-xs"><i class=" fa fa-pencil"></i></button>'.html_safe, edit_user_path(user) %>
+                             </div>
+                            <div class="col s4">
+                              <%= link_to '<button class="btn btn-primary btn-xs"><i class=" fa fa-trash-o"></i></button>'.html_safe, user, method: :delete, data: { confirm: 'Are you sure?' } %>
+                              </div>
 
-                        
-                                                                      
-                                                                        <%= link_to '<button class="btn btn-success btn-xs">
-                                                                        <i class=" fa fa-pencil"></i></button>'.html_safe, edit_user_path(user) %>
-                                                                        <%= link_to '<button class="btn btn-primary btn-xs">
-                                                                        <i class=" fa fa-trash-o"></i></button>'.html_safe, user, method: :delete, data: { confirm: 'Are you sure?' } %>
-                                                                    
-                                                                  </div>
+
+                          </div>
+                       </div>
             </div>
           </div>
         </div>
