@@ -100,11 +100,8 @@
                                       <% end %>
 
                                       <strong> Due Date:</strong> 
-                                      <% when_due = eadmin_task.due_date.to_i %>
-                                       <% d = current_user.start_date %> 
-                                       <% due_date3 = (d - when_due).to_s %>
-                                      <%= Date.parse(due_date3).strftime("%e, %B, %Y")%>
-
+                                      <%= when_due = eadmin_task.due_date.to_i %>
+                                      
                                   
                                       <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
                                       
@@ -184,10 +181,8 @@
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(55) %> </a> <br> <br>
                                       <% end %>
                                     <strong> Due Date:</strong> 
-                                      <% when_due = eadmin_task.due_date.to_i %>
-                                       <% d = current_user.start_date %> 
-                                       <% due_date4 =(d+when_due).to_s %>
-                                      <%= Date.parse(due_date4).strftime("%e, %B, %Y")%>
+                                    <%= when_due = eadmin_task.due_date.to_i %>
+                               
                                       <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
                                      </p>
 
@@ -271,10 +266,7 @@
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(55) %> </a> <br> <br>
                                       <% end %>
                                       <strong> Due Date:</strong> 
-                                       <% when_due = eadmin_task.due_date.to_i %>
-                                       <% d = current_user.start_date %> 
-                                       <% due_date5 =(d-when_due).to_s %>
-                                      <%= Date.parse(due_date5).strftime("%e, %B, %Y")%>
+                                    <%= when_due = eadmin_task.due_date.to_i %>
                                       <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
                                      </p>
                                       </div>
@@ -344,10 +336,8 @@
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(55) %> </a> <br> <br>
                                       <% end %>
                                       <strong> Due Date:</strong> 
-                                     <% when_due = eadmin_task.due_date.to_i %>
-                                       <% d = current_user.start_date %> 
-                                       <% due_date6 =(d+when_due).to_s %>
-                                      <%= Date.parse(due_date6).strftime("%e, %B, %Y")%>
+                                     <%= when_due = eadmin_task.due_date.to_i %>
+                                     
                                          <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
                                      </p>
                                       </div>
@@ -428,10 +418,7 @@
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(55) %> </a> <br> <br>
                                       <% end %>
                                      <strong> Due Date:</strong> 
-                                     <% when_due = eadmin_task.due_date.to_i %>
-                                       <% d = current_user.start_date %> 
-                                       <% due_date7 =(d-when_due).to_s %>
-                                      <%= Date.parse(due_date7).strftime("%e, %B, %Y")%>
+                                     <%= when_due = eadmin_task.due_date.to_i %>
                                          <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
                                      </p>
                               </li>
@@ -499,10 +486,7 @@
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(55) %> </a> <br> <br>
                                       <% end %>
                                       <strong> Due Date:</strong> 
-                                         <% when_due = eadmin_task.due_date.to_i %>
-                                       <% d = current_user.start_date %> 
-                                       <% due_date8 =(d+when_due).to_s %>
-                                      <%= Date.parse(due_date8).strftime("%e, %B, %Y")%>
+                                        <%= when_due = eadmin_task.due_date.to_i %>
                                          <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
                                      </p>
                               </li>
@@ -634,10 +618,7 @@
                                       <strong> Media: </strong><a href="<%= eadmin_task.media %>" target="_blank" > <%= eadmin_task.media.first(55) %> </a> <br> <br>
                                       <% end %>
                                       <strong> Due Date:</strong> 
-                                     <% when_due = eadmin_task.due_date.to_i %>
-                                       <% d = current_user.start_date %> 
-                                       <% due_date9 =(d+when_due).to_s %>
-                                      <%= Date.parse(due_date9).strftime("%e, %B, %Y")%>
+                                     <%= when_due = eadmin_task.due_date.to_i %>
                                          <%= link_to '<i class="material-icons right" >delete</i>'.html_safe, eadmin_task_path(:id => eadmin_task.id, :user_id => userid), method: :delete, data: { confirm: 'Are you sure?' } %>
 
                                      </p>
